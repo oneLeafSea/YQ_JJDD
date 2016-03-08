@@ -1,0 +1,6083 @@
+[
+    {
+        "crossId": "103811",
+        "ctrlerId": "103811X03035129",
+        "ctrlerNam": "星湖街-石港路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.35.129",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "T4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "T4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "T4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "T4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "6",
+            "7"
+        ],
+        "stageSeqType": "T4",
+        "status": "0",
+        "uid": "133",
+        "wkt": "POINT (63762.8645000001 42846.7070000004)"
+    },
+    {
+        "crossId": "103831",
+        "ctrlerId": "103831X03036001",
+        "ctrlerNam": "星湖街-塘浦路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.36.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "T4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "T4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "T4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "T4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "6",
+            "7"
+        ],
+        "stageSeqType": "T4",
+        "status": "0",
+        "uid": "134",
+        "wkt": "POINT (63788.9764 42350.3235999998)"
+    },
+    {
+        "crossId": "103901",
+        "ctrlerId": "103901X03036033",
+        "ctrlerNam": "星湖街-东延路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.36.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "135",
+        "wkt": "POINT (63796.8338000001 41856.6783000007)"
+    },
+    {
+        "crossId": "103691",
+        "ctrlerId": "103691X03040001",
+        "ctrlerNam": "星湖街-独墅湖隧道",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.40.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S11",
+                "type": "Y1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S5",
+                "type": "Y1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "Y1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S6",
+                "type": "Y1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S12",
+                "type": "Y1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ],
+        "stageSeqType": "Y1",
+        "status": "0",
+        "uid": "136",
+        "wkt": "POINT (63828.1771 41109.6131999996)"
+    },
+    {
+        "crossId": "108330",
+        "ctrlerId": "108330X03052193",
+        "ctrlerNam": "苏州大道东-思安街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.52.193  ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C3"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S7",
+                "type": "C3"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S8",
+                "type": "C3"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C3",
+        "status": "0",
+        "uid": "137",
+        "wkt": "POINT (63086.9656999996 45929.2038000003)"
+    },
+    {
+        "crossId": "108530",
+        "ctrlerId": "108530X03053001",
+        "ctrlerNam": "思安街-旺墩路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.53.1 ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "138",
+        "wkt": "POINT (63145.1435000002 45538.4286000002)"
+    },
+    {
+        "crossId": "108560",
+        "ctrlerId": "108560X03052225",
+        "ctrlerNam": "思安街-钟园路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.52.225 ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "139",
+        "wkt": "POINT (63194.0406 45219.7676999997)"
+    },
+    {
+        "crossId": "109140",
+        "ctrlerId": "109140X03053033",
+        "ctrlerNam": "苏州大道东-时韵街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.53.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [],
+        "stageRunSeqStrList": [],
+        "stageSeqType": "",
+        "status": "0",
+        "uid": "140",
+        "wkt": "POINT (62886.9573999997 45910.4655000009)"
+    },
+    {
+        "crossId": "103510",
+        "ctrlerId": "103510X03052001",
+        "ctrlerNam": "苏虹中路-华池街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.52.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "T1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "T1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "5",
+            "7"
+        ],
+        "stageSeqType": "T1",
+        "status": "0",
+        "uid": "141",
+        "wkt": "POINT (62534.8466999997 47249.3707999997)"
+    },
+    {
+        "crossId": "110090",
+        "ctrlerId": "110090X03052033",
+        "ctrlerNam": "华池街-西沈浒路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.52.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "0",
+        "uid": "142",
+        "wkt": "POINT (62614.6292000003 46779.9877000004)"
+    },
+    {
+        "crossId": "109370",
+        "ctrlerId": "109370X03052065",
+        "ctrlerNam": "九华路-华池街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.52.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "T7"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 7,
+                "stageCode": "S7",
+                "type": "T7"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "6",
+            "7"
+        ],
+        "stageSeqType": "T7",
+        "status": "0",
+        "uid": "143",
+        "wkt": "POINT (62616.2764999997 46507.6884000003)"
+    },
+    {
+        "crossId": "103321",
+        "ctrlerId": "103321X03030033",
+        "ctrlerNam": "现代大道-华池街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.30.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "144",
+        "wkt": "POINT (62609.4145 46247.2195999995)"
+    },
+    {
+        "crossId": "110080",
+        "ctrlerId": "110080X03053065",
+        "ctrlerNam": "华池街-苏州大道东",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.53.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "145",
+        "wkt": "POINT (62652.0795999998 45889.5681999996)"
+    },
+    {
+        "crossId": "108740",
+        "ctrlerId": "108740X03053097",
+        "ctrlerNam": "华池街-旺墩路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.53.97 ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "0",
+        "uid": "146",
+        "wkt": "POINT (62700.9068 45480.1571999993)"
+    },
+    {
+        "crossId": "108730",
+        "ctrlerId": "108730X03053129",
+        "ctrlerNam": "旺墩路-右岸街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.53.129 ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "147",
+        "wkt": "POINT (62480.1627000002 45451.9730999991)"
+    },
+    {
+        "crossId": "106240",
+        "ctrlerId": "106240X03053161",
+        "ctrlerNam": "苏州大道东-月廊街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.53.161 ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "148",
+        "wkt": "POINT (62364.2712000003 45931.8697999995)"
+    },
+    {
+        "crossId": "103191",
+        "ctrlerId": "103191X03028001",
+        "ctrlerNam": "现代大道-观枫街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.28.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "T1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "T1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "5",
+            "7"
+        ],
+        "stageSeqType": "T1",
+        "status": "0",
+        "uid": "149",
+        "wkt": "POINT (61836.0037000002 46237.0687000006)"
+    },
+    {
+        "crossId": "106030",
+        "ctrlerId": "106030X03053193",
+        "ctrlerNam": "苏州大道东-观枫街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.53.193 ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "150",
+        "wkt": "POINT (61832.5724 45965.9046999998)"
+    },
+    {
+        "crossId": "103500",
+        "ctrlerId": "103500X03052097",
+        "ctrlerNam": "苏虹中路-玲珑街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.52.97 ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "151",
+        "wkt": "POINT (61345.4413999999 46974.0276999995)"
+    },
+    {
+        "crossId": "109630",
+        "ctrlerId": "109630X03052161",
+        "ctrlerNam": "玲珑街-槟榔路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.52.161 ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C12"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C12"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C12"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C12"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C12"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C12",
+        "status": "0",
+        "uid": "152",
+        "wkt": "POINT (61389.9696000004 46783.9223999996)"
+    },
+    {
+        "crossId": "109640",
+        "ctrlerId": "109640X03052129",
+        "ctrlerNam": "玲珑街-西沈浒路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.52.129 ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "153",
+        "wkt": "POINT (61437.6986999996 46629.5251000002)"
+    },
+    {
+        "crossId": "103301",
+        "ctrlerId": "103301X03028033",
+        "ctrlerNam": "现代大道-玲珑街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.28.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "154",
+        "wkt": "POINT (61447.1555000003 46207.9120000005)"
+    },
+    {
+        "crossId": "108070",
+        "ctrlerId": "108070X03054001",
+        "ctrlerNam": "西和众街-西沈浒路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.54.1 ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "155",
+        "wkt": "POINT (61889.2472999999 46688.9211999997)"
+    },
+    {
+        "crossId": "108060",
+        "ctrlerId": "108060X03053225",
+        "ctrlerNam": "东和众街-西沈浒路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.53.225 ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "T5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "T5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "7"
+        ],
+        "stageSeqType": "T5",
+        "status": "0",
+        "uid": "156",
+        "wkt": "POINT (62308.9400000004 46740.8752999995)"
+    },
+    {
+        "crossId": "103490",
+        "ctrlerId": "103490X03054033",
+        "ctrlerNam": "苏虹中路-凤鸣街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.54.33 ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "T1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "T1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "5",
+            "7"
+        ],
+        "stageSeqType": "T1",
+        "status": "0",
+        "uid": "157",
+        "wkt": "POINT (60545.5724999998 46848.1710000001)"
+    },
+    {
+        "crossId": "106470",
+        "ctrlerId": "106470X03054065",
+        "ctrlerNam": "凤鸣街-槟榔路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.54.65 ",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "158",
+        "wkt": "POINT (60516.1409999998 46630.0636999998)"
+    },
+    {
+        "crossId": "110030",
+        "ctrlerId": "110030X03061001",
+        "ctrlerNam": "石港路-东华林街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.61.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "159",
+        "wkt": "POINT (63551.2511999998 42850.4511999991)"
+    },
+    {
+        "crossId": "110321",
+        "ctrlerId": "110321X03036065",
+        "ctrlerNam": "塘浦路-东华林街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.36.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "160",
+        "wkt": "POINT (63554.7110000001 42360.0105000008)"
+    },
+    {
+        "crossId": "110631",
+        "ctrlerId": "110631X03036097",
+        "ctrlerNam": "东延路-东华林街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.36.97",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "161",
+        "wkt": "POINT (63548.0881000003 41863.9228000008)"
+    },
+    {
+        "crossId": "110020",
+        "ctrlerId": "110020X03061033",
+        "ctrlerNam": "石港路-西华林街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.61.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "1",
+        "uid": "162",
+        "wkt": "POINT (63100.9601999996 42817.8093999997)"
+    },
+    {
+        "crossId": "110311",
+        "ctrlerId": "110311X03036129",
+        "ctrlerNam": "塘浦路-西华林街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.36.129",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "T3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "T3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "T3"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "T3"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "8"
+        ],
+        "stageSeqType": "T3",
+        "status": "0",
+        "uid": "163",
+        "wkt": "POINT (63249.9267999995 42347.3115999997)"
+    },
+    {
+        "crossId": "110621",
+        "ctrlerId": "110621X03036161",
+        "ctrlerNam": "东延路-西华林街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.36.161",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "164",
+        "wkt": "POINT (63153.8217000002 41860.8011000007)"
+    },
+    {
+        "crossId": "110010",
+        "ctrlerId": "110010X03061065",
+        "ctrlerNam": "石港路-石莲街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.61.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "T3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "T3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "T3"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "T3"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "8"
+        ],
+        "stageSeqType": "T3",
+        "status": "0",
+        "uid": "165",
+        "wkt": "POINT (62332.2768000001 42645.7926000003)"
+    },
+    {
+        "crossId": "110693",
+        "ctrlerId": "110693X03061097",
+        "ctrlerNam": "钟南街-丽帆巷",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.61.97",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "166",
+        "wkt": "POINT (66769.3622000003 46013.0986000001)"
+    },
+    {
+        "crossId": "103220",
+        "ctrlerId": "103220X03061129",
+        "ctrlerNam": "现代大道-凤鸣街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.61.129",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "T2"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "T2"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "T2"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "T2"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "6",
+            "8"
+        ],
+        "stageSeqType": "T2",
+        "status": "0",
+        "uid": "167",
+        "wkt": "POINT (60712.5017999997 46188.0427999999)"
+    },
+    {
+        "crossId": "101240",
+        "ctrlerId": "101240X03054097",
+        "ctrlerNam": "苏虹东路-北榭雨街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.54.97",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "T1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "T1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "5",
+            "7"
+        ],
+        "stageSeqType": "T1",
+        "status": "1",
+        "uid": "62",
+        "wkt": "POINT (67331.8031000001 48140.4615000002)"
+    },
+    {
+        "crossId": "109080",
+        "ctrlerId": "109080X03054129",
+        "ctrlerNam": "东沈浒路-北榭雨街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.54.129",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "3",
+        "uid": "63",
+        "wkt": "POINT (67426.1469000001 47587.1525999997)"
+    },
+    {
+        "crossId": "108590",
+        "ctrlerId": "108590X03054161",
+        "ctrlerNam": "东沙湖路-北榭雨街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.54.161",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "0",
+        "uid": "64",
+        "wkt": "POINT (67497.8821999999 47132.3945000004)"
+    },
+    {
+        "crossId": "103281",
+        "ctrlerId": "103281X03038033",
+        "ctrlerNam": "现代大道-北榭雨街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.38.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "T2"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "T2"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "T2"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "T2"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "6",
+            "8"
+        ],
+        "stageSeqType": "T2",
+        "status": "0",
+        "uid": "65",
+        "wkt": "POINT (67566.926 46686.5490000006)"
+    },
+    {
+        "crossId": "108830",
+        "ctrlerId": "108830X03054193",
+        "ctrlerNam": "方洲路-南榭雨街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.54.193",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "66",
+        "wkt": "POINT (67689.6909999996 45125.6660999991)"
+    },
+    {
+        "crossId": "102450",
+        "ctrlerId": "102450X03054225",
+        "ctrlerNam": "中新大道东-南榭雨街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.54.225",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "67",
+        "wkt": "POINT (67705.9068999998 44444.9701000005)"
+    },
+    {
+        "crossId": "100530",
+        "ctrlerId": "100530X03055001",
+        "ctrlerNam": "港田路-南榭雨街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.55.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "T2"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "T2"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "T2"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "T2"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "6",
+            "8"
+        ],
+        "stageSeqType": "T2",
+        "status": "0",
+        "uid": "68",
+        "wkt": "POINT (67720.5099999998 43652.4953000005)"
+    },
+    {
+        "crossId": "107480",
+        "ctrlerId": "107480X03055033",
+        "ctrlerNam": "聚英巷-方洲路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.55.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "69",
+        "wkt": "POINT (67408.2604999999 45111.4668000005)"
+    },
+    {
+        "crossId": "103241",
+        "ctrlerId": "103241X03038065",
+        "ctrlerNam": "现代大道-锦溪街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.38.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "T1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "T1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "5",
+            "7"
+        ],
+        "stageSeqType": "T1",
+        "status": "0",
+        "uid": "70",
+        "wkt": "POINT (67122.1442 46622.8944000006)"
+    },
+    {
+        "crossId": "110690",
+        "ctrlerId": "110690X03055065",
+        "ctrlerNam": "苏州大道东-锦溪街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.55.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "71",
+        "wkt": "POINT (67128.4296000004 46348.4081999995)"
+    },
+    {
+        "crossId": "108670",
+        "ctrlerId": "108670X03055097",
+        "ctrlerNam": "锦溪街-钟园路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.55.97",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "72",
+        "wkt": "POINT (67160.5044 45817.2684000004)"
+    },
+    {
+        "crossId": "108660",
+        "ctrlerId": "108660X03055129",
+        "ctrlerNam": "锦溪街-方洲路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.55.129",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "73",
+        "wkt": "POINT (67196.4046 45094.9014999997)"
+    },
+    {
+        "crossId": "107500",
+        "ctrlerId": "107500X03055161",
+        "ctrlerNam": "锦溪街-丰茂巷",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.55.161",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "74",
+        "wkt": "POINT (67215.6736000003 44679.1964999996)"
+    },
+    {
+        "crossId": "102420",
+        "ctrlerId": "102420X03055193",
+        "ctrlerNam": "中新大道东-锦溪街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.55.193",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "1",
+        "uid": "75",
+        "wkt": "POINT (67224.6990999999 44419.1122999992)"
+    },
+    {
+        "crossId": "100520",
+        "ctrlerId": "100520X03055225",
+        "ctrlerNam": "港田路-锦溪街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.55.225",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "T2"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "T2"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "T2"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "T2"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "6",
+            "8"
+        ],
+        "stageSeqType": "T2",
+        "status": "0",
+        "uid": "76",
+        "wkt": "POINT (67261.9024 43624.8478999995)"
+    },
+    {
+        "crossId": "100320",
+        "ctrlerId": "100320X03056001",
+        "ctrlerNam": "苏虹东路-钟南街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.56.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C3"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S7",
+                "type": "C3"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S8",
+                "type": "C3"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C3",
+        "status": "1",
+        "uid": "77",
+        "wkt": "POINT (66688.8355999999 48024.6524999998)"
+    },
+    {
+        "crossId": "100400",
+        "ctrlerId": "100400X03056033",
+        "ctrlerNam": "钟南街-东沈浒路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.56.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "1",
+        "uid": "78",
+        "wkt": "POINT (66721.2867999999 47466.0483999997)"
+    },
+    {
+        "crossId": "100360",
+        "ctrlerId": "100360X03056065",
+        "ctrlerNam": "钟南街-东沙湖路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.56.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "3",
+        "uid": "79",
+        "wkt": "POINT (66729.3633000003 47017.6138000004)"
+    },
+    {
+        "crossId": "103061",
+        "ctrlerId": "103061X03038001",
+        "ctrlerNam": "现代大道-钟南街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.38.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "80",
+        "wkt": "POINT (66737.4741000002 46588.7756999992)"
+    },
+    {
+        "crossId": "110680",
+        "ctrlerId": "110680X03056097",
+        "ctrlerNam": "钟南街-苏州大道东",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.56.97",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "1",
+        "uid": "81",
+        "wkt": "POINT (66752.0636999998 46332.0308999997)"
+    },
+    {
+        "crossId": "100390",
+        "ctrlerId": "100390X03056129",
+        "ctrlerNam": "钟南街-钟园路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.56.129",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "82",
+        "wkt": "POINT (66776.4132000003 45776.6881000008)"
+    },
+    {
+        "crossId": "100350",
+        "ctrlerId": "100350X03056161",
+        "ctrlerNam": "钟南街-兆佳巷",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.56.161",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "83",
+        "wkt": "POINT (66786.2089999998 45287.5567000005)"
+    },
+    {
+        "crossId": "100380",
+        "ctrlerId": "100380X03056193",
+        "ctrlerNam": "钟南街-方洲路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.56.193",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "1",
+        "uid": "84",
+        "wkt": "POINT (66802.4380999999 45061.9620999992)"
+    },
+    {
+        "crossId": "100340",
+        "ctrlerId": "100340X03056225",
+        "ctrlerNam": "钟南街-丰茂巷",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.56.225",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "85",
+        "wkt": "POINT (66818.6469999999 44660.8441000003)"
+    },
+    {
+        "crossId": "100330",
+        "ctrlerId": "100330X03057001",
+        "ctrlerNam": "中新大道东-钟南街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.57.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "86",
+        "wkt": "POINT (66825.4077000003 44393.4840999991)"
+    },
+    {
+        "crossId": "108810",
+        "ctrlerId": "108810X03057033",
+        "ctrlerNam": "琉璃街-东沈浒路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.57.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "T1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "T1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "5",
+            "7"
+        ],
+        "stageSeqType": "T1",
+        "status": "0",
+        "uid": "87",
+        "wkt": "POINT (65961.4154000003 47324.2298000008)"
+    },
+    {
+        "crossId": "108580",
+        "ctrlerId": "108580X03057065",
+        "ctrlerNam": "东沙湖路-琉璃街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.57.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "88",
+        "wkt": "POINT (65982.6708000004 46912.8199000005)"
+    },
+    {
+        "crossId": "103271",
+        "ctrlerId": "103271X03037033",
+        "ctrlerNam": "现代大道-琉璃街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.37.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C3"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S7",
+                "type": "C3"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S8",
+                "type": "C3"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C3",
+        "status": "0",
+        "uid": "89",
+        "wkt": "POINT (65996.4822000004 46480.9740999993)"
+    },
+    {
+        "crossId": "108800",
+        "ctrlerId": "108800X03061161",
+        "ctrlerNam": "苏州大道东-琉璃街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.61.161",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "90",
+        "wkt": "POINT (65993.3816999998 46275.5795000009)"
+    },
+    {
+        "crossId": "108790",
+        "ctrlerId": "108790X03057097",
+        "ctrlerNam": "琉璃街-钟园路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.57.97",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "91",
+        "wkt": "POINT (66008.0284000002 45672.8137999997)"
+    },
+    {
+        "crossId": "108500",
+        "ctrlerId": "108500X03057193",
+        "ctrlerNam": "兆佳巷-琉璃街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.57.193",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "92",
+        "wkt": "POINT (66010.9033000004 45327.0435000006)"
+    },
+    {
+        "crossId": "108780",
+        "ctrlerId": "108780X03057161",
+        "ctrlerNam": "琉璃街-方洲路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.57.161",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "93",
+        "wkt": "POINT (66007.9874 44972.5051000007)"
+    },
+    {
+        "crossId": "107570",
+        "ctrlerId": "107570X03057129",
+        "ctrlerNam": "丰茂巷-琉璃街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.57.129",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "94",
+        "wkt": "POINT (66022.6193000004 44618.8629000001)"
+    },
+    {
+        "crossId": "102440",
+        "ctrlerId": "102440X03057225",
+        "ctrlerNam": "中新大道东-琉璃街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.57.225",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C3"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S7",
+                "type": "C3"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S8",
+                "type": "C3"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C3",
+        "status": "0",
+        "uid": "95",
+        "wkt": "POINT (66025.5456999997 44370.4365999997)"
+    },
+    {
+        "crossId": "100410",
+        "ctrlerId": "100410X03058001",
+        "ctrlerNam": "苏虹中路-星塘街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.58.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "1",
+        "uid": "96",
+        "wkt": "POINT (65574.2474999996 47837.6400000006)"
+    },
+    {
+        "crossId": "103251",
+        "ctrlerId": "103251X03037065",
+        "ctrlerNam": "现代大道-津梁街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.37.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "T1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "T1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "T1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "5",
+            "7"
+        ],
+        "stageSeqType": "T1",
+        "status": "3",
+        "uid": "97",
+        "wkt": "POINT (65259.7555 46366.8735000007)"
+    },
+    {
+        "crossId": "108710",
+        "ctrlerId": "108710X03058033",
+        "ctrlerNam": "苏州大道东-津梁街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.58.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "98",
+        "wkt": "POINT (65272.2534999996 46181.1778999996)"
+    },
+    {
+        "crossId": "108680",
+        "ctrlerId": "108680X03058065",
+        "ctrlerNam": "津梁街-旺墩路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.58.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "0",
+        "uid": "99",
+        "wkt": "POINT (65259.4253000002 45808.6092000008)"
+    },
+    {
+        "crossId": "108700",
+        "ctrlerId": "108700X03058097",
+        "ctrlerNam": "津梁街-钟园路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.58.97",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "100",
+        "wkt": "POINT (65277.7576000001 45588.3697999995)"
+    },
+    {
+        "crossId": "108430",
+        "ctrlerId": "108430X03058129",
+        "ctrlerNam": "钟慧路-津梁街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.58.129",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "101",
+        "wkt": "POINT (65274.0981999999 45146.3539000005)"
+    },
+    {
+        "crossId": "108690",
+        "ctrlerId": "108690X03058161",
+        "ctrlerNam": "津梁街-方洲路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.58.161",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "102",
+        "wkt": "POINT (65277.7346000001 44902.3013000004)"
+    },
+    {
+        "crossId": "102430",
+        "ctrlerId": "102430X03058193",
+        "ctrlerNam": "中新大道东-津梁街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.58.193",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "103",
+        "wkt": "POINT (65294.2205999997 44374.3914000001)"
+    },
+    {
+        "crossId": "100420",
+        "ctrlerId": "100420X03058225",
+        "ctrlerNam": "苏虹中路-南施街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.58.225",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "1",
+        "uid": "104",
+        "wkt": "POINT (64505.5221999995 47611.4013)"
+    },
+    {
+        "crossId": "101420",
+        "ctrlerId": "101420X03059001",
+        "ctrlerNam": "南施街-白塘路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.59.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "T3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "T3"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "T3"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "T3"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "8"
+        ],
+        "stageSeqType": "T3",
+        "status": "0",
+        "uid": "105",
+        "wkt": "POINT (64521.8162000002 47305.0548999999)"
+    },
+    {
+        "crossId": "101410",
+        "ctrlerId": "101410X03059033",
+        "ctrlerNam": "南施街-西沈浒路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.59.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "T4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "T4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "T4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "T4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "6",
+            "7"
+        ],
+        "stageSeqType": "T4",
+        "status": "0",
+        "uid": "106",
+        "wkt": "POINT (64519.5469000004 47079.7885999996)"
+    },
+    {
+        "crossId": "101380",
+        "ctrlerId": "101380X03059065",
+        "ctrlerNam": "南施街-九华路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.59.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "107",
+        "wkt": "POINT (64540.3047000002 46622.4148999993)"
+    },
+    {
+        "crossId": "103091",
+        "ctrlerId": "103091X03031001",
+        "ctrlerNam": "现代大道-南施街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.31.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "1",
+        "uid": "108",
+        "wkt": "POINT (64556.5273000002 46274.3443999998)"
+    },
+    {
+        "crossId": "101400",
+        "ctrlerId": "101400X03059097",
+        "ctrlerNam": "苏州大道东-南施街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.59.97",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "109",
+        "wkt": "POINT (64547.2471000003 46097.6061000004)"
+    },
+    {
+        "crossId": "101370",
+        "ctrlerId": "101370X03059129",
+        "ctrlerNam": "南施街-旺墩路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.59.129",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "3",
+        "uid": "110",
+        "wkt": "POINT (64577.4075999996 45721.4330000002)"
+    },
+    {
+        "crossId": "101390",
+        "ctrlerId": "101390X03059161",
+        "ctrlerNam": "南施街-钟园路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.59.161",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "111",
+        "wkt": "POINT (64589.0149999997 45491.4619999994)"
+    },
+    {
+        "crossId": "101340",
+        "ctrlerId": "101340X03059193",
+        "ctrlerNam": "南施街-钟慧路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.59.193",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "0",
+        "uid": "112",
+        "wkt": "POINT (64633.0895999996 45089.7826000005)"
+    },
+    {
+        "crossId": "101360",
+        "ctrlerId": "101360X03059225",
+        "ctrlerNam": "南施街-方洲路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.59.225",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "1",
+        "uid": "113",
+        "wkt": "POINT (64616.8669999996 44852.9518999998)"
+    },
+    {
+        "crossId": "101320",
+        "ctrlerId": "101320X03060001",
+        "ctrlerNam": "中新大道东-南施街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.60.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "114",
+        "wkt": "POINT (64642.4241000004 44335.5089999996)"
+    },
+    {
+        "crossId": "101350",
+        "ctrlerId": "101350X03060033",
+        "ctrlerNam": "南施街-琼姬路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.60.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "115",
+        "wkt": "POINT (64642.3952000001 44084.4669000004)"
+    },
+    {
+        "crossId": "108770",
+        "ctrlerId": "108770X03060065",
+        "ctrlerNam": "万盛街-西沈浒路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.60.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "116",
+        "wkt": "POINT (63866.9205 46961.2244000006)"
+    },
+    {
+        "crossId": "108750",
+        "ctrlerId": "108750X03060097",
+        "ctrlerNam": "万盛街-九华路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.60.97",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C5"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S6",
+                "type": "C5"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "5",
+            "6"
+        ],
+        "stageSeqType": "C5",
+        "status": "0",
+        "uid": "117",
+        "wkt": "POINT (63906.3832999999 46439.1371999998)"
+    },
+    {
+        "crossId": "103261",
+        "ctrlerId": "103261X03031033",
+        "ctrlerNam": "现代大道-万盛街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.31.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "118",
+        "wkt": "POINT (63917.9803999998 46257.8381999992)"
+    },
+    {
+        "crossId": "108760",
+        "ctrlerId": "108760X03060129",
+        "ctrlerNam": "苏州大道东-万盛街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.60.129",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "0",
+        "uid": "119",
+        "wkt": "POINT (63943.5153000001 46032.5347000007)"
+    },
+    {
+        "crossId": "108720",
+        "ctrlerId": "108720X03060161",
+        "ctrlerNam": "旺墩路-万盛街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.60.161",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "1",
+        "uid": "120",
+        "wkt": "POINT (63955.0782000003 45651.8010000009)"
+    },
+    {
+        "crossId": "108650",
+        "ctrlerId": "108650X03060193",
+        "ctrlerNam": "钟园路-万盛街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.60.193",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "121",
+        "wkt": "POINT (63973.6571000004 45417.0789000001)"
+    },
+    {
+        "crossId": "102460",
+        "ctrlerId": "102460X03060225",
+        "ctrlerNam": "中新大道东-长乐街",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.60.225",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "122",
+        "wkt": "POINT (64060.9181000004 44323.6039000005)"
+    },
+    {
+        "crossId": "103631",
+        "ctrlerId": "103631X03029001",
+        "ctrlerNam": "星湖街-苏虹中路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.29.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C9"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C9"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C9"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C9"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C9"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C9"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C9"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C9"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C9",
+        "status": "0",
+        "uid": "123",
+        "wkt": "POINT (63245.915 47382.6169000007)"
+    },
+    {
+        "crossId": "103861",
+        "ctrlerId": "103861X03029033",
+        "ctrlerNam": "星湖街-西沈浒路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.29.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "0",
+        "uid": "124",
+        "wkt": "POINT (63295.4572000001 46868.0069999993)"
+    },
+    {
+        "crossId": "103781",
+        "ctrlerId": "103781X03030001",
+        "ctrlerNam": "星湖街-九华路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.30.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "0",
+        "uid": "125",
+        "wkt": "POINT (63329.3459999999 46452.7125000004)"
+    },
+    {
+        "crossId": "103671",
+        "ctrlerId": "103671X03030065",
+        "ctrlerNam": "星湖街-现代大道",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.30.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "126",
+        "wkt": "POINT (63344.9937000005 46232.9133000001)"
+    },
+    {
+        "crossId": "103841",
+        "ctrlerId": "103841X03032065",
+        "ctrlerNam": "星湖街-苏州大道东",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.32.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "0",
+        "uid": "127",
+        "wkt": "POINT (63378.9477000004 45963.8224)"
+    },
+    {
+        "crossId": "103761",
+        "ctrlerId": "103761X03032033",
+        "ctrlerNam": "星湖街-旺墩路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.32.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "0",
+        "uid": "128",
+        "wkt": "POINT (63446.8941000002 45577.2888999991)"
+    },
+    {
+        "crossId": "103801",
+        "ctrlerId": "103801X03032001",
+        "ctrlerNam": "星湖街-钟园路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.32.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "0",
+        "uid": "129",
+        "wkt": "POINT (63509.5575000001 45315.8949999996)"
+    },
+    {
+        "crossId": "101068",
+        "ctrlerId": "101068X03033065",
+        "ctrlerNam": "星湖街-西洲路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.33.65",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "0",
+        "uid": "130",
+        "wkt": "POINT (63648.0247999998 44889.9613000006)"
+    },
+    {
+        "crossId": "103661",
+        "ctrlerId": "103661X03033001",
+        "ctrlerNam": "星湖街-中新大道东",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.33.1",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 5,
+                "stageCode": "S5",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C4",
+        "status": "0",
+        "uid": "131",
+        "wkt": "POINT (63728.9545 44315.5615999997)"
+    },
+    {
+        "crossId": "103751",
+        "ctrlerId": "103751X03033033",
+        "ctrlerNam": "星湖街-琼姬墩路",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.33.33",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "T4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "T4"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "T4"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "T4"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "3",
+            "4",
+            "6",
+            "7"
+        ],
+        "stageSeqType": "T4",
+        "status": "0",
+        "uid": "132",
+        "wkt": "POINT (63752.4214000003 44004.3479999993)"
+    },
+    {
+        "crossId": "999999",
+        "ctrlerId": "ManualTest",
+        "ctrlerNam": "手控测试机",
+        "description": "",
+        "deviceTp": "",
+        "installPhase": "2",
+        "ipAddress": "10.100.13.25",
+        "regionNo": "",
+        "roadNo": "",
+        "runSeqLinesMap": {},
+        "software": "",
+        "stageRunSeqList": [
+            {
+                "fixed": "Y",
+                "runSeq": 1,
+                "stageCode": "S1",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 2,
+                "stageCode": "S2",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 3,
+                "stageCode": "S3",
+                "type": "C1"
+            },
+            {
+                "fixed": "Y",
+                "runSeq": 4,
+                "stageCode": "S4",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 5,
+                "stageCode": "S7",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 6,
+                "stageCode": "S8",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 7,
+                "stageCode": "S9",
+                "type": "C1"
+            },
+            {
+                "fixed": "N",
+                "runSeq": 8,
+                "stageCode": "S10",
+                "type": "C1"
+            }
+        ],
+        "stageRunSeqStrList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "stageSeqType": "C1",
+        "status": "0",
+        "uid": "999",
+        "wkt": "POINT (61360.0 45045.0)"
+    }
+]

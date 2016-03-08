@@ -1,0 +1,29 @@
+ [
+  {
+      "crossId": "999999",
+      "junctionId": "091921",
+      "lockStage": "",
+      "lockUser": "",
+      "manCtrlNote": {
+          "createBy": "System",
+          "createDt": "2015-12-01 15:22:11.000",
+          "crossId": "999999",
+          "note": "早晚高峰，东西向流量大，注意放行"
+      },
+      "modelCode": "0601",
+      "modelDesc": "UTC 中心SCOOT控制",
+      "name": "手控测试",
+      "phaseDataList": [],
+      "runStage": {
+          "crossId": "999999",
+          "duration": 5,
+          "sn": 1,
+          "name": "东西直行",
+          "startTm": "2015-12-24 14:25:04.000"
+      },
+      "stageData": {
+          "name": "",
+          "sn": ""
+      }
+  }
+]
