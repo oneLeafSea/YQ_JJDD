@@ -77,7 +77,6 @@
 - (void)removeDevice:(TVElecPoliceInfo *)epi wsmgr:(RTWSMgr *)wsmgr completion:(void(^)(id result, NSError *error))completion_ {
     NSMutableArray *arr = [[NSMutableArray alloc] initWithArray:self.subcricbedDeivces];
     [arr removeObject:epi];
-    [arr addObject:epi];
     [self subscribeTollgateWithDevices:arr wsmgr:wsmgr completion:^(id result, NSError *error) {
         if (completion_) {
             completion_(result, error);

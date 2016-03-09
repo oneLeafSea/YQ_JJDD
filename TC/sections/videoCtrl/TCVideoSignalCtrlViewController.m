@@ -20,6 +20,7 @@
 @interface TCVideoSignalCtrlViewController() <TCSignalCtrlViewControllerDelegate, TCVideosViewControllerDelegate>
 
 @property(nonatomic, strong) TCVideosViewController *vvc;
+@property(nonatomic, strong) TCApplyReq *applyCtrl;
 @property(nonatomic, strong) TCSignalCtrlViewController *svc;
 
 @property(nonatomic, assign) BOOL isVideoDirty; // 视频是否已经改变
@@ -123,6 +124,7 @@
     }
     return _vvc;
 }
+
 
 - (void)resumeAll {
     [self.vvc resumeAll];

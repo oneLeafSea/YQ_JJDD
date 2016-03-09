@@ -113,6 +113,7 @@
 		7DC160B71BD62E30002DFAC1 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D4588441BCF428A00E8B8A3 /* libiconv.tbd */; };
 		7DE010891BF9A2D500A5A631 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DE010881BF9A2D500A5A631 /* Assets.xcassets */; };
 		C0401E944455DBA497CEB6F9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9960E58C5DFDF51979BBD01 /* libPods.a */; };
+		DCE4D41C1C8E66E300F164F3 /* TCBriefTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE4D41B1C8E66E300F164F3 /* TCBriefTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -331,6 +332,8 @@
 		7DC160B51BD62C77002DFAC1 /* libAirIMOSIphoneSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAirIMOSIphoneSDK.a; path = ../../../Downloads/libAirIMOSIphoneSDK.a; sourceTree = "<group>"; };
 		7DE010881BF9A2D500A5A631 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9960E58C5DFDF51979BBD01 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCE4D41A1C8E66E300F164F3 /* TCBriefTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCBriefTableViewCell.h; sourceTree = "<group>"; };
+		DCE4D41B1C8E66E300F164F3 /* TCBriefTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCBriefTableViewCell.m; sourceTree = "<group>"; };
 		DF16B93CA902053D91388934 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -393,6 +396,8 @@
 				7D61B8841C87DC2A0011D7AF /* TCTollgateViewController.m */,
 				7D61B8861C880BF20011D7AF /* TCTollgateDetailViewController.h */,
 				7D61B8871C880BF20011D7AF /* TCTollgateDetailViewController.m */,
+				DCE4D41A1C8E66E300F164F3 /* TCBriefTableViewCell.h */,
+				DCE4D41B1C8E66E300F164F3 /* TCBriefTableViewCell.m */,
 			);
 			path = tollgate;
 			sourceTree = "<group>";
@@ -1017,6 +1022,7 @@
 				7D6CE5E01C1A768B00990ABA /* RTHb.swift in Sources */,
 				7D6CE5AA1C1A767E00990ABA /* TVCamInfo.m in Sources */,
 				7D6CE5411C1A6D7400990ABA /* TCHighCamCallOutViewController.m in Sources */,
+				DCE4D41C1C8E66E300F164F3 /* TCBriefTableViewCell.m in Sources */,
 				7D6CE5E21C1A768B00990ABA /* BEMAnimationManager.m in Sources */,
 				7D5D96A61C84468E00B0CF8A /* TCSignalCtrlView.m in Sources */,
 				7D6CE5EE1C1A768B00990ABA /* UITextField+TCStyle.m in Sources */,

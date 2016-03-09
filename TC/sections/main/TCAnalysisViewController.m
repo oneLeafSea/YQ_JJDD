@@ -33,7 +33,7 @@
 //    NSString *str = [NSString stringWithFormat:@"http://10.100.8.70:7001/trafficpolice/downloadServlet?token=%@&mode=download&selectedWeek=-1", @"YkQENkQBZDO1UUMxQzNENEOFVTQ5EjM4MUOBFUO1cTO"] ;
 //    http://10.100.8.70:7001/trafficpolice/downloadServlet?token=YkQENkQBZDO1UUMxQzNENEOFVTQ5EjM4MUOBFUO1cTO&mode=download&selectedWeek=-1
     
-    NSString *str = @"http://10.100.9.20:8080/menu";
+    NSString *str = @"http://10.100.9.20:8081/menu";
     NSURL *url = [NSURL URLWithString:str];
     NSURLRequest *urlReq = [[NSURLRequest alloc] initWithURL:url];
     self.webView.delegate = self;
@@ -95,6 +95,7 @@
             [_backButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.view).offset(18);
                 make.right.equalTo(self.view).offset(-18);
+                make.width.equalTo(@40);
             }];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

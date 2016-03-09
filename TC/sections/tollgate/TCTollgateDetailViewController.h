@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TCTollgateNotification.h"
 
 @interface TCTollgateDetailViewController : UIViewController
+
+- (void)setTgNotification:(TCTollgateNotification *)tgn;
 
 @end

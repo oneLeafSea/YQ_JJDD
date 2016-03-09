@@ -7,12 +7,16 @@
 //
 
 #import "TCTollgateDetailViewController.h"
-
+#import "TCBriefTableViewCell.h"
 #import <Masonry/Masonry.h>
+#import <UIView+Toast.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
-@interface TCTollgateDetailViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface TCTollgateDetailViewController ()
 
-@property(nonatomic, strong) UITableView *tableView;
+@property(nonatomic, strong) UIImageView *imgView;
+
+@property(nonatomic, strong) UIWebView *webView;
 
 @end
 
@@ -20,7 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.tableView];
     [self setup];
 }
 
@@ -35,32 +38,39 @@
 
 
 - (void)setupConstaints {
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+//    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.view);
+//    }];
 }
 
-
-- (UITableView *)tableView {
-    if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
+#pragma mark -getter
+- (UIImageView *)imgView {
+    if (_imgView == nil) {
+        _imgView = [[UIImageView alloc] initWithImage:nil];
+        [self.view addSubview:_imgView];
     }
-    return _tableView;
+    return _imgView;
 }
 
-
-#pragma mark - table delegate & datasource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+- (UIWebView *)webView {
+    if (_webView == nil) {
+        _webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+        [self.view addSubview:_webView];
+    }
+    return _webView;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"demo"];
-    cell.textLabel.text = @"测试";
-    return cell;
+#pragma mark - public method
+
+- (void)setTgNotification:(TCTollgateNotification *)tgn {
+    if (tgn.imgUrl) {
+        NSURL *url = [NSURL URLWithString:tgn.imgUrl];
+        [self.imgView sd_setImageWithURL:url];
+    }
 }
+
 
 @end
