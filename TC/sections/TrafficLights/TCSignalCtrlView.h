@@ -32,4 +32,6 @@
 
 - (void)signalCtrlView:(TCSignalCtrlView *)signalCtrlView didDeleteScInfo:(TLSignalCtrlerInfo *)scInfo;
 
+- (void)signalCtrlView:(TCSignalCtrlView *)signalCtrlView requestBtnTapped:(UIButton *)btn;
+
 @end

@@ -222,7 +222,9 @@
 
 #pragma mark - action
 - (void)requestBtnTapped:(UIButton *)btn {
-    
+    if ([self.delegate respondsToSelector:@selector(signalCtrlView:requestBtnTapped:)]) {
+        [self.delegate signalCtrlView:self requestBtnTapped:self.requestBtn];
+    }
 }
 
 - (void)backToMapBtnTapped:(UIButton *)btn {

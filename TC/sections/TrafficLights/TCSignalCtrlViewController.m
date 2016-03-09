@@ -8,6 +8,8 @@
 
 #import "TCSignalCtrlViewController.h"
 #import "TCSignalCtrlView.h"
+#import "TCApplyReq.h"
+#import "AppDelegate.h"
 
 #import <Masonry/Masonry.h>
 
@@ -61,6 +63,13 @@
     if ([self.delegate respondsToSelector:@selector(TCSignalCtrlViewController:didDeleteScInfo:)]) {
         [self.delegate TCSignalCtrlViewController:self didDeleteScInfo:scInfo];
     }
+}
+
+- (void)signalCtrlView:(TCSignalCtrlView *)signalCtrlView requestBtnTapped:(UIButton *)btn {
+    btn.enabled = NO;
+    [TCApplyReq ApplyCtrlWithWsmgr:APP_DELEGATE.wsMgr completion:^(RTWSMsg *msg, NSError *err) {
+        btn.enabled = YES;
+    }];
 }
 
 @end

@@ -20,10 +20,14 @@
         if (error == nil) {
             NSDictionary *dict = rt;
             RTWSMsg *r = [[RTWSMsg alloc] initWithDict:dict];
-            completion(r, error);
+            if (completion) {
+                completion(r, error);
+            }
         } else {
             NSLog(@"%@", error);
-            completion(nil, error);
+            if (completion) {
+                completion(nil, error);
+            }
         }
     }];
 }
