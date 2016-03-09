@@ -69,6 +69,7 @@
     btn.enabled = NO;
     [TCApplyReq ApplyCtrlWithWsmgr:APP_DELEGATE.wsMgr completion:^(RTWSMsg *msg, NSError *err) {
         btn.enabled = YES;
+        
     }];
 }
 

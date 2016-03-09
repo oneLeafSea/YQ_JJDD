@@ -17,7 +17,7 @@
 #import "RTWSContstants.h"
 
 
-@interface AppDelegate () <RTWSMgrDelegate>
+@interface AppDelegate () <RTWSMgrDelegate, TCTollgateMgrDelegate>
 
 @end
 
@@ -129,6 +129,13 @@
     fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
     fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
     [DDLog addLogger:fileLogger];
+}
+
+- (void)TCTollgateMgr:(TCTollgateMgr *)tgMgr newPushNotifications:(NSArray *)notifications {
+    [notifications enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        TCTollgateNotification *tgn = obj;
+        [tgn insertToDbWithDbq:self.usr.dbq];
+    }];
 }
 
 
