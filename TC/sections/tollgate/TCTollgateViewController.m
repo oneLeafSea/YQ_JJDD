@@ -30,6 +30,7 @@
     // Do any additional setup after loading the view.
     self.tgns = [TCTollgateNotification getNotificationWithDbq:APP_DELEGATE.usr.dbq ByLimit:100];
     self.view.backgroundColor = [UIColor whiteColor];
+    [self setupRefresh];
     [self setup];
 }
 
@@ -44,6 +45,21 @@
 
 }
 
+#pragma mark - refresh
+-(void)setupRefresh
+{
+    UIRefreshControl *refContrl =[[UIRefreshControl alloc]init];
+    [refContrl addTarget:self action:@selector(refreshShowChange:) forControlEvents:UIControlEventValueChanged];
+    [self.briefTableView addSubview:refContrl];
+    [refContrl beginRefreshing];
+    [self refreshShowChange:refContrl];
+}
+
+-(void)refreshShowChange:(UIRefreshControl *)refContrl
+{
+    [TCTollgateNotification getNotificationWithDbq:APP_DELEGATE.usr.dbq ByLimit:100];
+    [refContrl endRefreshing];
+}
 
 - (void)setup {
     [self.view addSubview:self.briefTableView];
@@ -106,7 +122,7 @@
     TCTollgateNotification *tgn = [self.tgns objectAtIndex:indexPath.row];
     cell.locationLbl.text =tgn.location;
     cell.plateLbl.text =tgn.plateCode;
-    cell.descLbl.text =[NSString stringWithFormat:@"%@于%@在%@以%@行驶", tgn.plateCode, tgn.capTime, tgn.location ,tgn.speed] ;
+    cell.descLbl.text =[NSString stringWithFormat:@"%@于%@在%@以%@行驶,违法代码%@", tgn.plateCode, tgn.capTime, tgn.location ,tgn.speed, tgn.alarmContent] ;
     
 //    cell.locationLbl.text =tgn ;
 //    cell.plateLbl.text = @"苏E12345";
@@ -115,8 +131,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    TCTollgateNotification *tgn = [[TCTollgateNotification alloc] init];
-    tgn.imgUrl = @"http://10.100.8.192:8083/tms05guoche1/2016/03/03/16/320594000000060165/16265228105.jpg";
+    TCTollgateNotification *tgn = [self.tgns objectAtIndex:indexPath.row];
     [self.detailVC setTgNotification:tgn];
     
 }

@@ -33,6 +33,7 @@
     self.wsMgr = [[RTWSMgr alloc] initWithAddr:kWsAddr];
     self.wsMgr.delegate = self;
     self.tgMgr = [[TCTollgateMgr alloc] init];
+    self.tgMgr.delegate = self;
     return YES;
 }
 
