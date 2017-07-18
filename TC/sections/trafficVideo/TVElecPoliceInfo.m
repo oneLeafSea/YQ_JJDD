@@ -26,7 +26,6 @@
     }
     return nil;
 }
-
 - (void)parseDict:(NSDictionary *)dict {
     self.crossId = [dict jsonObjectForKey:@"crossId"];
     self.ctrlerId = [dict jsonObjectForKey:@"ctrlerId"];
@@ -39,8 +38,9 @@
     self.status = [dict jsonObjectForKey:@"status"];
     self.tollgateId = [dict jsonObjectForKey:@"tollgateId"];
     self.tunnel = [dict jsonObjectForKey:@"tunnel"];
+    
     self.status = [dict jsonObjectForKey:@"status"];
-    self.tunnel = [dict jsonObjectForKey:@"tunnel"];
+    
     self.uid = [dict jsonObjectForKey:@"uid"];
     self.wkt = [dict jsonObjectForKey:@"wkt"];
 }

@@ -198,6 +198,10 @@
     [TLAPI getAllSignalCtrlWithToken:[TLAPI loginToken] Completion:^(NSString *jsonResult, BOOL finished) {
         if (finished) {
             NSArray *array = [jsonResult objectFromJSONString];
+            if ([array isKindOfClass:[NSDictionary class]]) {
+                completion(NO, nil);
+                return;
+            }
             [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 NSDictionary *dict = obj;
                 TLSignalCtrlerInfo *scInfo = nil;
@@ -378,6 +382,7 @@
             }];
             completion_(YES, nil);
         } else {
+            
             NSError *err = [NSError errorWithDomain:@"TLMgr.buildHighCamInfos" code:2 userInfo:@{@"desc":@"获取的路口探头数据不是array类型"}];
             completion_(NO, err);
         }

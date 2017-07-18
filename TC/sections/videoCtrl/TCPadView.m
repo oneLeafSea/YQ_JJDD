@@ -26,8 +26,7 @@
 @property (nonatomic, strong) UIImageView *rightDownArrowImgView;
 @property (nonatomic, strong) UIImageView *centerImgView;
 
-@property (nonatomic, strong) UIButton *zoomInBtn;
-@property (nonatomic, strong) UIButton *zoomOutBtn;
+
 @end
 
 @implementation TCPadView
@@ -35,6 +34,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self commonInit];
+        
     }
     return self;
 }
@@ -93,6 +93,7 @@
     self.rightUpArrowImgView.hidden = !([self.rightUpArrowImgView isEqual:imgView]);
     self.rightArrowImgView.hidden = !([self.rightArrowImgView isEqual:imgView]);
     self.rightDownArrowImgView.hidden = !([self.rightDownArrowImgView isEqual:imgView]);
+    
 }
 
 
@@ -181,8 +182,10 @@
 - (UIButton *) zoomInBtn {
     if (_zoomInBtn == nil) {
         _zoomInBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_zoomInBtn setTitle:@"放大" forState:UIControlStateNormal];
+        //[_zoomInBtn setTitle:@"放大" forState:UIControlStateNormal];
+        [_zoomInBtn setBackgroundImage:[UIImage imageNamed:@"3"] forState:UIControlStateNormal];
         [self addSubview:_zoomInBtn];
+       // _zoomInBtn.hidden=YES;
     }
     return _zoomInBtn;
 }
@@ -190,8 +193,10 @@
 - (UIButton *) zoomOutBtn {
     if (_zoomOutBtn == nil) {
         _zoomOutBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_zoomOutBtn setTitle:@"缩小" forState:UIControlStateNormal];
+        
+        [_zoomOutBtn setBackgroundImage:[UIImage imageNamed:@"suoxiao(1)"] forState:UIControlStateNormal];
         [self addSubview:_zoomOutBtn];
+        //_zoomOutBtn.hidden=YES;
     }
     return _zoomOutBtn;
 }
@@ -201,10 +206,10 @@
 - (void)commonInit {
     self.currentDirection = TCPadDirectionNone;
     _currentZoom = TCPadZoomNone;
-    _pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGuesture:)];
-    [self addGestureRecognizer:_pinchGesture];
-    [self.zoomInBtn addTarget:self action:@selector(handleZoomInBtnDown) forControlEvents:UIControlEventTouchDown];
-    [self.zoomInBtn addTarget:self action:@selector(handleZoomInBtnUp) forControlEvents:UIControlEventTouchUpInside];
+    //_pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGuesture:)];
+    //[self addGestureRecognizer:_pinchGesture];
+   [self.zoomInBtn addTarget:self action:@selector(handleZoomInBtnDown) forControlEvents:UIControlEventTouchDown];
+   [self.zoomInBtn addTarget:self action:@selector(handleZoomInBtnUp) forControlEvents:UIControlEventTouchUpInside];
    
     
     [self.zoomOutBtn addTarget:self action:@selector(handleZoomOutBtnDown) forControlEvents:UIControlEventTouchDown];
@@ -277,15 +282,24 @@
         make.height.equalTo(self).dividedBy(3);
     }];
     
-    [self.zoomOutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-20);
-        make.bottom.equalTo(self).offset(-10);
-    }];
-    
-    [self.zoomInBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-20);
-        make.bottom.equalTo(self.zoomOutBtn.mas_top).offset(-10);
-    }];
+//    [self.zoomOutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        //make.right.equalTo(self).offset(-100);
+//        //make.top.equalTo(self).offset(150);
+//        make.left.equalTo(self).offset(10);
+//        make.bottom.equalTo(self).offset(-80);
+//        make.width.equalTo(self.mas_width).multipliedBy(0.1);
+//        make.height.equalTo(self.mas_height).multipliedBy(0.1);
+//        
+//    }];
+//    
+//    [self.zoomInBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//       // make.right.equalTo(self).offset(-100);
+//        //make.bottom.equalTo(self.zoomOutBtn.mas_top).offset(-10);
+//        make.left.equalTo(self).offset(10);
+//        make.bottom.equalTo(self.zoomOutBtn.mas_top).offset(-20);
+//        make.width.equalTo(self.mas_width).multipliedBy(0.1);
+//        make.height.equalTo(self.mas_height).multipliedBy(0.1);
+//    }];
 }
 
 

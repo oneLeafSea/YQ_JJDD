@@ -25,5 +25,6 @@
                  pwd:(NSString *)pwd
                wsmgr:(RTWSMgr *)wsmgr
           withResult:(void(^)(RTWSMsg * resp))result;
-
++(void)loginWithUsr:(NSString *)usr
+                pwd:(NSString *)pwd ;
 @end

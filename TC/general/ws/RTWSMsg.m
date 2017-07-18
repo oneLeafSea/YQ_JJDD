@@ -10,7 +10,7 @@
 #import "RTWSMsgConstants.h"
 #import "NSDate+Common.h"
 #import "JSONKit.h"
-
+#import "NSString+AESCrypt.h"
 @interface RTWSMsg()
 
 @property(nonatomic, strong) NSMutableDictionary *content;
@@ -44,16 +44,22 @@
 }
 
 - (BOOL)parseDict:(NSDictionary *)dict {
+    
     _msgId = [dict valueForKey:@"msgid"];
     if (_msgId == nil) {
         return NO;
     }
     NSString *content = [dict valueForKey:@"content"];
+    NSLog(@"self.content:%@",content);
     if (content == nil) {
+        
         return NO;
     }
+    
     NSData *contentData = [content dataUsingEncoding:NSUTF8StringEncoding];
     self.content = [NSJSONSerialization JSONObjectWithData:contentData options:NSJSONReadingMutableContainers error:nil];
+    
+    
     NSString *timestamp = [dict valueForKey:@"timestamp"];
     if (timestamp == nil) {
         return NO;
@@ -77,8 +83,13 @@
     
     NSError *err = nil;
     NSString *strContent = nil;
-    if (self.content) {
-        strContent = self.content.JSONString;
+        if (self.content) {
+        //NSLog(@"%@",self.content);
+        //strContent = self.content.JSONString;
+            
+        NSData *jsonData=[NSJSONSerialization dataWithJSONObject:self.content options:NSJSONWritingPrettyPrinted error:nil];
+    strContent=[[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+       // NSLog(@"%@",self.content);
     }
     NSMutableDictionary *mDict = [[NSMutableDictionary alloc] initWithCapacity:4];
     [mDict setValue:self.msgId forKey:@"msgid"];
@@ -87,9 +98,10 @@
         [mDict setValue:strContent forKey:@"content"];
     }
     [mDict setValue:[self.timestamp formatWith:nil] forKey:@"timestamp"];
-    NSLog(@"%@", mDict);
+    
     NSData *data = [NSJSONSerialization dataWithJSONObject:mDict options:NSJSONWritingPrettyPrinted error:&err];
     NSString *strData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"---strData%@------",strData);
     return strData;
 }
 

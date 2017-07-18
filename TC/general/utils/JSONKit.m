@@ -961,6 +961,7 @@ static JKDictionary *_JKDictionaryCreate(id *keys, NSUInteger *keyHashes, id *ob
 static JKHashTableEntry *_JKDictionaryHashEntry(JKDictionary *dictionary) {
   NSCParameterAssert(dictionary != NULL);
   return(dictionary->entry);
+    
 }
 
 static NSUInteger _JKDictionaryCapacity(JKDictionary *dictionary) {
@@ -2595,7 +2596,7 @@ static int jk_encode_add_atom_to_buffer(JKEncodeState *encodeState, void *object
   // XXX XXX XXX XXX
 
 
-  BOOL   workAroundMacOSXABIBreakingBug = (JK_EXPECT_F(((NSUInteger)object) & 0x1))     ? YES  : NO;
+  BOOL   workAroundMacOSXABIBreakingBug = (JK_EXPECT_F(((NSUInteger)object) %2))     ? YES  : NO;
   void  *objectISA                      = (JK_EXPECT_F(workAroundMacOSXABIBreakingBug)) ? NULL : *((void **)objectPtr);
   if(JK_EXPECT_F(workAroundMacOSXABIBreakingBug)) { goto slowClassLookup; }
 

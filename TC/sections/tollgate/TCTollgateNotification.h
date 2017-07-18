@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "RTWSMsg.h"
+#import "RTBKMsg.h"
 #import <FMDB.h>
 
 @interface TCTollgateNotification : NSObject
 
 + (NSArray *)notificationArray:(RTWSMsg *)msg;
-
++ (NSArray *)notificationArrayWithB_K:(RTBKMsg *)msg;
 @property(nonatomic, copy) NSString *deviceId;        // 卡口编码
 @property(nonatomic, copy) NSString *alarmType;       // 告警类型
 @property(nonatomic, copy) NSString *alarmCode;       // 违法代码
@@ -31,11 +32,15 @@
 @property(nonatomic, copy) NSString *vehicleColor;    // 车辆颜色
 @property(nonatomic, copy) NSString *imgUrl;          // 合成图URL
 @property(nonatomic, copy) NSString *plateCodeUrl;    // 号牌URL
+@property(nonatomic,copy)NSString *alarmContrlType;
+@property(nonatomic,copy)NSString *alarmControlContent;
+@property(nonatomic, copy) NSString *alarmControlDes; // 布控告警详情
 
 - (BOOL)insertToDbWithDbq:(FMDatabaseQueue *)dbq;
-
+- (BOOL)insertToDbBKWithDbq:(FMDatabaseQueue *)dbq;
 + (NSArray *)getNotificationWithDbq:(FMDatabaseQueue *)dbq ByLimit:(NSInteger )limit;
 
++ (NSArray *)getNotificationBKWithDbq:(FMDatabaseQueue *)dbq ByLimit:(NSInteger )limit;
 + (BOOL)truncateNoificationsWithDbq:(FMDatabaseQueue *)dbq;
-
++ (BOOL)truncateNoificationsBKWithDbq:(FMDatabaseQueue *)dbq ;
 @end

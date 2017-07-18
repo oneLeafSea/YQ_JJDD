@@ -11,11 +11,15 @@
 
 #pragma mark - table tollgatePush
 extern NSString const* kTbTollgatePush;
-
-extern NSString *kSqlTollgatePushTbCreate;
-
+extern NSString *kSqlTollgateBKPushTbCreate_BK;
+extern NSString  *kSqlTollgatePushTbCreate;
+extern NSString *kSqlTollgateDYPushTbCreate;
 extern NSString *kSqlTollagtePushInsert;
-
+extern NSString *kSqTollagteBKPushInsert;
+extern NSString *kSqlTollagteDYPushInsert ;
 extern NSString *kSqlTollageQueryWithLimit;
-
+extern NSString *kSqlTollageBKQueryWithLimit;
+extern NSString *kSqlTollageDYQueryWithLimit;
 extern NSString *kSqlTollageTruncate;
+extern NSString *kSqlTollageBKTruncate;
+extern NSString *kSqlTollageDYTruncate;

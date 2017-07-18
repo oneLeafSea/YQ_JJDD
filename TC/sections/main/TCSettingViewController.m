@@ -30,7 +30,7 @@
     [self.aboutTV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
         make.width.equalTo(self.view);
-        make.height.equalTo(@50);
+        make.height.equalTo(@70);
     }];
 }
 
@@ -40,7 +40,8 @@
     if (_aboutTV == nil) {
         _aboutTV = [[UITextView alloc] initWithFrame:CGRectZero];
         [self.view addSubview:_aboutTV];
-        _aboutTV.text = @"移动智能交通\n version: 1.0";
+        _aboutTV.text = @"移动智能交通\n version: 1.2\n 更新内容：卡口违法过车和布控告警同视图显示";
+        
         [_aboutTV sizeToFit];
         _aboutTV.textAlignment = NSTextAlignmentCenter;
         [_aboutTV setEditable:NO];

@@ -112,7 +112,7 @@
     if (index != NSNotFound) {
         TCSignalCtrllerStateInfo *stateInfo = [self.scStateInfoArray objectAtIndex:index];
         TLSignalCtrlerInfo *scInfo = [APP_DELEGATE.tlMgr getSCInfoByCrossId:stateInfo.crossId];
-        [scInfo setCrossRunStageWithLockTime:@"00" userName:self.userName manTrigger:YES stageSn:stateInfo.sn token:[TLAPI loginToken] completion:^(BOOL finished) {
+        [scInfo setCrossRunStageWithLockTime:@"0" userName:self.userName manTrigger:YES stageSn:stateInfo.sn token:[TLAPI loginToken] completion:^(BOOL finished) {
             if (finished) {
                 [self.scStateInfoArray removeObjectAtIndex:index];
                 if (self.scStateInfoArray.count == 0) {

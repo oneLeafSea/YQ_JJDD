@@ -21,7 +21,7 @@
 @property(nonatomic, strong)NSArray *tableDatas;
 
 - (BOOL)isReservedWithClassName:(NSString *)className;
-
+-(void)handleExit;
 @end
 
 

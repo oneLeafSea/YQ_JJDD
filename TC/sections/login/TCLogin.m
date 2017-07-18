@@ -21,6 +21,7 @@
     [msg addParamWithKey:@"user" value:usr];
     [msg addParamWithKey:@"pwd" value:pwd];
     [msg addParamWithKey:@"device" value:kDeviceIPad];
+    NSLog(@"%@",usr);
     [wsmgr sendMsg:msg withCompletion:^(id rt, NSError *error) {
         if (error == nil) {
             NSDictionary *dict = rt;
@@ -32,5 +33,8 @@
         }
     }];
 }
-
++(void)loginWithUsr:(NSString *)usr
+                pwd:(NSString *)pwd{
+    
+}
 @end

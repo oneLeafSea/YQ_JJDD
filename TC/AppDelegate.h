@@ -15,7 +15,8 @@
 #import "RTWSMgr.h"
 #import "TCTollgateMgr.h"
 #import "TCUser.h"
-
+#import"TCTollgateDYViewController.h"
+#import <SRWebSocket.h>
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -36,6 +37,11 @@
 
 @property(nonatomic, strong) TCUser *usr;
 
+@property(nonatomic,strong)TCTollgateDYViewController *tDyC;
+
+@property(nonatomic, strong)UILocalNotification *localNoti;
+
+@property(nonatomic, strong)SRWebSocket *webSocket;
 @end
 
 #define APP_DELEGATE ((AppDelegate*)[[UIApplication sharedApplication] delegate])

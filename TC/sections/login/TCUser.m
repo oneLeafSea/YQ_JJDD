@@ -59,20 +59,40 @@
         return NO;
     }
     
-    if (![self createTb]) {
+    if (![self createTb_To]) {
         return NO;
     }
+    if (![self createTb3]) {
+        return  NO;
+    }
+    if (![self createTb_BK]) {
+        return NO;
+    }
+   
     return YES;
 }
 
-- (BOOL)createTb {
+- (BOOL)createTb_To {
     __block BOOL ret = YES;
     [self.dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
         ret = [db executeUpdate:kSqlTollgatePushTbCreate];
     }];
     return ret;
 }
-
+-(BOOL)createTb_BK{
+    __block BOOL ret = YES;
+    [self.dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        ret = [db executeUpdate:kSqlTollgateBKPushTbCreate_BK];
+    }];
+    return ret;
+}
+-(BOOL)createTb3{
+    __block BOOL ret = YES;
+    [self.dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        ret = [db executeUpdate:kSqlTollgateDYPushTbCreate];
+    }];
+    return ret;
+}
 
 #pragma mark - getter
 - (FMDatabaseQueue *)dbq {

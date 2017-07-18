@@ -12,9 +12,11 @@
 @protocol TCVideosViewControllerDelegate;
 
 @interface TCVideosViewController : UIViewController
-
 @property(nonatomic, strong)NSArray *selVieoArray;
-
+@property(nonatomic,strong)NSURL *strUrl;
+@property(nonatomic,strong)NSString* value;
+@property(nonatomic,strong)NSString *desc;
+@property(nonatomic,strong)NSMutableArray*arr;
 - (void)pauseAll;
 - (void)resumeAll;
 

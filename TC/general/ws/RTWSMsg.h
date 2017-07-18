@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+//#import<CommonCrypto/CommonDigest.h>
+//#import <CommonCrypto/CommonCryptor.h>
+
 @interface RTWSMsg : NSObject
 
 - (instancetype)initWithDict:(NSDictionary *)dict;

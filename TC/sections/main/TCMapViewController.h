@@ -11,6 +11,7 @@
 #import "TVHighCamInfo.h"
 #import "TVElecPoliceInfo.h"
 #import "TVRoadCamInfo.h"
+#import "JSONKit.h"
 
 @protocol TCMapViewControllerDelegate;
 
@@ -18,11 +19,12 @@
 
 @property(nonatomic, weak) id<TCMapViewControllerDelegate> delegate;
 
+@property(nonatomic,retain)NSDictionary*dict;
 /**
  *  信号机信息数组.
  */
 @property(nonatomic, readonly)NSArray *selectedSCArray;
-
+@property(nonatomic,strong)NSArray *mutaArr;
 /**
  *  TVRoadCamInfo、TVHighCamInfo、TVElecPoliceInfo中的一种
  */
@@ -38,5 +40,5 @@
 - (void)mapViewControllerShiftBtnPressed:(TCMapViewController *)mapViewController;
 
 - (void)mapViewController:(TCMapViewController *)mapViewController SignalCtrlerDidSelected:(BOOL) selected SignalCtrlerInfo:(TLSignalCtrlerInfo *)scInfo;
-
+//-(void)mapViewController:(TCMapViewController*)mapViewContrller SignalCtrlSelecetedByCrossId:(TLSignalCtrlerInfo*)info;
 @end

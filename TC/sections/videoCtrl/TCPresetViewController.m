@@ -15,41 +15,22 @@
 #import "env.h"
 #import "UVPresetInfo.h"
 #import "UVPresetParam.h"
-
+#import "TCVideoContainerView.h"
+#import "UVLog.h"
 @interface TCPresetViewController()  <UITableViewDataSource, UITableViewDelegate>
 
-@property(nonatomic, strong)UITableView *tableView;
+
 @property(nonatomic, strong)UIActivityIndicatorView *waitView;
-@property(nonatomic, strong)NSMutableArray  *presetList;
+
 
 @end
 
 @implementation TCPresetViewController
 
-- (instancetype)init {
-    if (self = [super init]) {
-        [self commonInit];
-    }
-    return self;
-}
 
-- (void)commonInit {
-    self.presetList = [[NSMutableArray alloc] initWithCapacity:32];
-#ifndef YUAN_QU_DA_DUI
-    for (int n = 0; n < 10; n++) {
-        UVPresetInfo *presetInfo = [[UVPresetInfo alloc]init];
-        presetInfo.presetValue = n;
-        presetInfo.presetDesc = [NSString stringWithFormat:@"测试%d", n];
-        [self.presetList addObject:presetInfo];
-    }
-#endif
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.tableView];
-    [self setupConstraints];
-}
 
 - (void)queryPreset {
-    self.tableView.hidden = YES;
+    //self.tableView.hidden = YES;
     [self.waitView startAnimating];
     [APP_DELEGATE.tvMgr.request execRequest:^{
         UVQueryCondition *condition = [[UVQueryCondition alloc] init];
@@ -57,9 +38,11 @@
         [condition setOffset:0];
         [condition setLimit:32];
         UVQueryPresetListParam *param = [[UVQueryPresetListParam alloc] init];
-        [param setCameraCode:self.resInfo.resCode];
+       [param setCameraCode:self.resInfo.resCode];
         [param setPageInfo:condition];
-        self.presetList = [APP_DELEGATE.tvMgr.service cameraQueryPresetList:param];
+        
+     [APP_DELEGATE.tvMgr.service cameraQueryPresetList:param];
+        
     }finish:^(UVError *error) {
         [self.waitView stopAnimating];
 #ifndef YUAN_QU_DA_DUI
@@ -68,6 +51,7 @@
         if (error == nil) {
             self.tableView.hidden = NO;
         } else {
+           
             [self.view makeToast:[NSString stringWithFormat:@"查询失败:%@", error.message]];
             DDLogError(@"%@", error.message);
         }
@@ -112,7 +96,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.tableView];
+    [self setupConstraints];
     [self queryPreset];
+    UVQueryCondition *condition = [[UVQueryCondition alloc] init];
+    [condition setIsQuerySub:YES];
+    [condition setOffset:0];
+    [condition setLimit:32];
+    UVQueryPresetListParam *param = [[UVQueryPresetListParam alloc] init];
+    [param setCameraCode:self.resInfo.resCode];
+    [param setPageInfo:condition];
+    self.presetList = [APP_DELEGATE.tvMgr.service cameraQueryPresetList:param];
+    
 }
 
 #pragma mark - getter
@@ -121,6 +119,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.hidden=YES;
         [self.view addSubview:_tableView];
     }
     return _tableView;
@@ -137,7 +136,9 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"self::%ld",self.presetList.count);
     return self.presetList.count;
+    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -154,27 +155,38 @@
     UVPresetInfo *pi = [self.presetList objectAtIndex:indexPath.row];
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     cell.textLabel.text = pi.presetDesc;
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self dismissViewControllerAnimated:YES completion:^{
-        UVPresetInfo *item = [self.presetList objectAtIndex:indexPath.row];
+        UVPresetInfo *info =[self.presetList objectAtIndex:indexPath.row];
+       NSLog(@"%d",info.presetValue);
         UVPresetParam *param = [[UVPresetParam alloc] init];
-        param.presetValue = item.presetValue;
+        param.presetValue = info.presetValue;
+       
         param.cameraCode = self.resInfo.resCode;
+        
         [APP_DELEGATE.tvMgr.request execRequest:^{
-            [APP_DELEGATE.tvMgr.service cameraUsePreset:param];
+            
+         [APP_DELEGATE.tvMgr.service cameraUsePreset:param];
+           
         }finish:^(UVError *error) {
-            if ([self.delegate respondsToSelector:@selector(TCPresetViewController:SetPresetResult:error:)]) {
+             NSLog(@"error:%@",error);
+          
+            if ([self.delegate respondsToSelector:@selector(TCPresetViewController:  SetPresetResult:error:)]) {
                 if (error == nil) {
-                    [self.delegate TCPresetViewController:self SetPresetResult:YES error:nil];
+                    [self.delegate TCPresetViewController:self  SetPresetResult:YES error:nil];
+                    
                 } else {
-                    [self.delegate TCPresetViewController:self SetPresetResult:NO error:error];
+                    [self.delegate TCPresetViewController:self  SetPresetResult:NO error:error];
+                    
+
                 }
             }
-            NSLog(@"error:%@", error.message);
+            
         }];
     }];
 }

@@ -15,7 +15,9 @@
 @interface TCSignalCtrlView : UIView
 
 @property(nonatomic, strong) UITableView *tableView;
-
+@property(nonatomic, strong) UIButton *requestBtn;
+@property(nonatomic, strong) UIButton *backtoMapBtn;
+@property(nonatomic,strong)NSString *nameID;
 @property(nonatomic, weak) id<TCSignalCtrlViewDelegate> delegate;
 
 @property(nonatomic, strong) NSArray* scInfoArray;

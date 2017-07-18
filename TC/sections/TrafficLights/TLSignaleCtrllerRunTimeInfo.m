@@ -30,6 +30,7 @@
     self.modelDesc = [dict objectForKey:@"modelDesc"];
     self.phaseDataList = [dict objectForKey:@"phaseDataList"];
     self.stage = [dict objectForKey:@"runStage"];
+    self.stageId=[dict objectForKey:@"stageId"];
     
 }
 
@@ -49,9 +50,8 @@
     NSNumber *d = [self.stage objectForKey:@"duration"];
     return [d integerValue];
 }
-
 - (NSString *)stageName {
-    return [self.stage objectForKey:@"name"];
+     return [self.stage objectForKey:@"name"];
 }
 
 @end

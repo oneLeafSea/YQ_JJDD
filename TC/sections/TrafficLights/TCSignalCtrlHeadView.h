@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TCSignalCtrlView.h"
 @protocol TCSignalCtrlHeadViewDelegate;
 
 @interface TCSignalCtrlHeadView : UIView
@@ -23,7 +23,7 @@
 @property(nonatomic, copy) NSString *ctrlerName;
 @property(nonatomic, weak) id<TCSignalCtrlHeadViewDelegate> delegate;
 @property(nonatomic, copy) NSString *ctrlerId;
-
+@property(nonatomic,strong)TCSignalCtrlView*scview;
 @end
 
 @protocol TCSignalCtrlHeadViewDelegate <NSObject>

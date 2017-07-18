@@ -28,8 +28,11 @@
     
     NSArray *funcTableDatas = @[@{@"title":@"视频、信号机控制", @"normalImg":@"func_video_surveillance_un", @"selectedImg":@"func_video_surveillance", @"className":@"TCVideoSignalMapViewController", @"reserved":@YES},
                                 @{@"title":@"统计分析", @"normalImg":@"func_analysis_un", @"selectedImg":@"func_analysis", @"className":@"TCAnalysisViewController", @"reserved":@NO},
-                                @{@"title":@"卡口通知", @"normalImg":@"func_tollgate_un", @"selectedImg":@"func_tollgate_un", @"className":@"TCTollgateViewController"},
-                                @{@"title":@"设置", @"normalImg":@"func_setting_un", @"selectedImg":@"func_setting", @"className":@"TCSettingViewController", @"reserved":@NO}];
+                                @{@"title":@"卡口订阅", @"normalImg":@"func_tollgate_un", @"selectedImg":@"func_tollgate_un", @"className":@"TCTollgateViewController"},
+//                                @{@"title":@"卡口布控", @"normalImg":@"kakoubukong", @"selectedImg":@"kakoubukong", @"className":@"TCTollegateBKViewController"},
+//                                @{@"title":@"卡口订阅", @"normalImg":@"kakkouyuedu", @"selectedImg":@"kakkouyuedu", @"className":@"TCTollgateDYViewController"},
+                                @{@"title":@"设置", @"normalImg":@"func_setting_un", @"selectedImg":@"func_setting", @"className":@"TCSettingViewController", @"reserved":@NO}
+                                ];
     
     TCFuncViewController *funcVC = [[TCFuncViewController alloc] init];
     funcVC.tableDatas = funcTableDatas;

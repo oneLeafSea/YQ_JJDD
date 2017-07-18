@@ -35,6 +35,7 @@
 
 - (void)addSignalContrller:(TLSignalCtrlerInfo *)scInfo {
     [self.svc addSignalContrller:scInfo];
+    
 }
 
 - (void)removeSignalController:(TLSignalCtrlerInfo *)scInfo {
@@ -148,7 +149,7 @@
     NSMutableArray *ma = [NSMutableArray arrayWithArray:self.selectedCamArray];
     [ma removeObject:camInfo];
     _selectedCamArray = ma;
-    if ([self.delegate respondsToSelector:@selector(TCVideoSignalCtrlViewController:camDidClosed:)]) {
+    if ([self.delegate respondsToSelector:@selector(TCVideoSignalCtrlViewController: camDidClosed:)]) {
         [self.delegate TCVideoSignalCtrlViewController:self camDidClosed:camInfo];
     }
 }

@@ -12,8 +12,8 @@
 #import <Masonry/Masonry.h>
 #import "BEMCheckBox.h"
 #import "AppDelegate.h"
-
-
+#import "UIColor+Hexadecimal.h"
+#import "TCVideoContainerView.h"
 
 @interface TCEPCCalloutViewController ()<BEMCheckBoxDelegate>
 
@@ -24,7 +24,7 @@
 @property(nonatomic, strong) UILabel *cameraLabel;
 @property(nonatomic, strong) UILabel *videoSelectLabel;
 @property(nonatomic, strong) UILabel *tollgateSelLabel;
-
+@property(nonatomic,strong)TCVideoContainerView*tcv;
 @end
 
 @implementation TCEPCCalloutViewController
@@ -65,8 +65,8 @@
     [self.videoCheckbox mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.videoSelectLabel);
         make.right.equalTo(self.view).offset(-10);
-        make.height.equalTo(self.cameraLabel.mas_height);
-        make.width.equalTo(self.cameraLabel.mas_height);
+        make.height.equalTo(self.videoSelectLabel.mas_height);
+        make.width.equalTo(self.videoSelectLabel.mas_height);
     }];
     
     [self.tollgateSelLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -77,8 +77,8 @@
     [self.tollgateCheckbox mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.tollgateSelLabel);
         make.right.equalTo(self.view).offset(-10);
-        make.height.equalTo(self.cameraLabel.mas_height);
-        make.width.equalTo(self.cameraLabel.mas_height);
+        make.height.equalTo(self.tollgateSelLabel.mas_height);
+        make.width.equalTo(self.tollgateSelLabel.mas_height);
     }];
 }
 
@@ -101,8 +101,8 @@
         _videoCheckbox.boxType = BEMBoxTypeSquare;
         _videoCheckbox.onAnimationType = BEMAnimationTypeFade;
         _videoCheckbox.offAnimationType = BEMAnimationTypeFade;
-        _videoCheckbox.onTintColor = [UIColor orangeColor];
-        _videoCheckbox.onCheckColor = [UIColor orangeColor];
+        _videoCheckbox.onTintColor = [UIColor colorWithHex:@"ff5252"];
+        _videoCheckbox.onCheckColor = [UIColor colorWithHex:@"ff5252"];
         _videoCheckbox.on = self.videoSelected;
         _videoCheckbox.delegate = self;
         [self.view addSubview:_videoCheckbox];
@@ -116,8 +116,8 @@
         _tollgateCheckbox.boxType = BEMBoxTypeSquare;
         _tollgateCheckbox.onAnimationType = BEMAnimationTypeFade;
         _tollgateCheckbox.offAnimationType = BEMAnimationTypeFade;
-        _tollgateCheckbox.onTintColor = [UIColor orangeColor];
-        _tollgateCheckbox.onCheckColor = [UIColor orangeColor];
+        _tollgateCheckbox.onTintColor = [UIColor colorWithHex:@"#ff5252"];
+        _tollgateCheckbox.onCheckColor = [UIColor colorWithHex:@"#ff5252"];
         _tollgateCheckbox.on = self.tollageSelected;
         _tollgateCheckbox.delegate = self;
         [self.view addSubview:_tollgateCheckbox];
@@ -138,7 +138,7 @@
 - (UILabel *)tollgateSelLabel {
     if (_tollgateSelLabel == nil) {
         _tollgateSelLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _tollgateSelLabel.text = @"卡口通知";
+        _tollgateSelLabel.text = @"订阅卡口";
         [self.view addSubview:_tollgateSelLabel];
         [_tollgateSelLabel sizeToFit];
     }
@@ -155,6 +155,11 @@
     }
     return _cameralName;
 }
+//-(NSString *)cameralName{
+//    if (_cameralName==nil) {
+//        
+//    }
+//}
 
 #pragma mark - BEMCheckBox delegate
 
@@ -162,11 +167,15 @@
     if ([checkBox isEqual:self.tollgateCheckbox]) {
         if ([self.delegate respondsToSelector:@selector(TCEPCCalloutViewController:tollgateDidSelected:)]) {
             [self.delegate TCEPCCalloutViewController:self tollgateDidSelected:checkBox.on];
+//            TCEPCTollegateViewController *viewTOL=[[TCEPCTollegateViewController alloc]init];
+//            [self presentModalViewController:viewTOL animated:YES];
         }
     }
     
     if ([checkBox isEqual:self.videoCheckbox]) {
+        
         if ([self.delegate respondsToSelector:@selector(TCEPCCalloutViewController:videoDidSelected:)]) {
+            
             [self.delegate TCEPCCalloutViewController:self videoDidSelected:checkBox.on];
         }
     }

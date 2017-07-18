@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 
 #import <MRProgress/MRProgress.h>
-
+#import "MBProgressHUD.h"
 #import "UIColor+Hexadecimal.h"
 #import "UITextField+TCStyle.h"
 #import "UIButton+TCStyle.h"
@@ -19,6 +19,8 @@
 #import "RTWSContstants.h"
 #import "TCLogin.h"
 #import "TCTollgate.h"
+
+#import "Reachability.h"
 
 
 const float kEmblemCenterConstraintDefault = -184;
@@ -41,13 +43,50 @@ const float KEmblemCenterConstraintKeyboardShow = -308;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
+-(BOOL) isConnectionAvailable{
+    
+    BOOL isExistenceNetwork = YES;
+    Reachability *reach = [Reachability reachabilityWithHostName:@"ws://10.100.8.145:8080/ws"];
+    switch ([reach currentReachabilityStatus]) {
+        case NotReachable:
+            isExistenceNetwork = NO;
+            [APP_DELEGATE.webSocket open];
+            [self loginBtnTapped:self.loginBtn];
+                       break;
+        case ReachableViaWiFi:
+            isExistenceNetwork = YES;
+            
+            break;
+        case ReachableViaWWAN:
+            isExistenceNetwork = YES;
+            
+            break;
+    }
+    
+    if (!isExistenceNetwork) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.removeFromSuperViewOnHide =YES;
+        hud.mode = MBProgressHUDModeText;
+        //hud.labelText = NSLocalizedString(INFO_NetNoReachable, nil);
+        hud.minSize = CGSizeMake(132.f, 108.0f);
+        [hud hide:YES afterDelay:3];
+        return NO;
+    }
+    
+    return isExistenceNetwork;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self isConnectionAvailable];
+    
     [self.loginTextField setLabelTextFieldWithlabelName:@"  用户名 "];
     [self.pwdTextField setLabelTextFieldWithlabelName:@"  密   码  "];
-    self.loginTextField.text = @"xiangsy";
-    self.pwdTextField.text = @"xiangsy";
+    self.loginTextField.text = @"";
+    self.pwdTextField.text = @"";
+    self.waitIndicator.hidden = YES;
     [self.loginBtn setBorderStyleWithBorderColor:[UIColor colorWithHex:@"#29a0f8"] backgoundColor:[UIColor colorWithHex:@"#50b1f8"]];
     [self.loginBtn setBackgroundImage:[UIImage imageNamed:@"sc_gray_btn_bg"] forState:UIControlStateDisabled];
     
@@ -70,12 +109,20 @@ const float KEmblemCenterConstraintKeyboardShow = -308;
     }
     
     loginBtn.enabled = NO;
+    self.waitIndicator.hidden = NO;
     [self.waitIndicator startAnimating];
     [self.loginTextField resignFirstResponder];
     [self.pwdTextField resignFirstResponder];
     self.loginTextField.enabled = NO;
     self.pwdTextField.enabled = NO;
-    
+    NSUserDefaults *ud=[NSUserDefaults standardUserDefaults];
+    [ud setObject:self.loginTextField.text forKey:@"tv.user"];
+    [ud setObject:self.pwdTextField.text forKey:@"tv.pwd"];
+    [TLAPI loginTollegateDYWithUserName:self.loginTextField.text arr:NULL loginFlag:@"true" completion:^(BOOL finished) {
+        if (finished) {
+            
+        }
+    }];
     [TLAPI loginWithUserName:self.loginTextField.text pwd:self.pwdTextField.text completion:^(BOOL finished, NSError *error) {
         if (error == nil) {
             dispatch_group_t waitGroup = dispatch_group_create();
@@ -84,17 +131,33 @@ const float KEmblemCenterConstraintKeyboardShow = -308;
             [TLAPI getArcgisTokenWithUsrName:@"jwmobile" pwd:@"jwmobile" completion:^(NSString *token, BOOL finished) {
                 [self.waitIndicator stopAnimating];
                 self.loginTextField.enabled = YES;
-                self.pwdTextField.enabled = YES;
+                                self.pwdTextField.enabled = YES;
                 if (finished) {
-                    [[NSUserDefaults standardUserDefaults] setObject:[token copy] forKey:@"tl.mapToken"];
+                                       [[NSUserDefaults standardUserDefaults] setObject:[token copy] forKey:@"tl.mapToken"];
+                    NSLog(@"可连接");
                     
                 } else {
-                    [self.view makeToast:@"获取token失败！"];
-                    NSLog(@"获取token失败！");
+                    NSLog(@"不可连接");
                 }
                 arcTokenResult = finished;
                 dispatch_group_leave(waitGroup);
             }];
+    
+//            [TLAPI getArcgisToken:
+//             ^(NSString *string, BOOL finished) {
+//                [self.waitIndicator stopAnimating];
+//                self.loginTextField.enabled = YES;
+//                self.pwdTextField.enabled = YES;
+//                if (finished) {
+//                   //[[NSUserDefaults standardUserDefaults] setObject:[token copy] forKey:@"tl.mapToken"];
+//                    NSLog(@"可连接");
+//                    
+//                } else {
+//                    NSLog(@"不可连接");
+//                }
+//                arcTokenResult = finished;
+//                dispatch_group_leave(waitGroup);
+//            }];
             
             __block BOOL scResult = YES;
             dispatch_group_enter(waitGroup);
@@ -103,6 +166,8 @@ const float KEmblemCenterConstraintKeyboardShow = -308;
                 if (!finished) {
                     [self.view makeToast:@"构造SC错误！"];
                     NSLog(@"%@", @"构造SC错误！");
+                }else{
+                    NSLog(@"sc可用");
                 }
                 dispatch_group_leave(waitGroup);
             }];
@@ -113,8 +178,11 @@ const float KEmblemCenterConstraintKeyboardShow = -308;
             [APP_DELEGATE.tlMgr buildHighCamInfosWithToken:[TLAPI loginToken] completion:^(BOOL finished, NSError *error) {
                 highCamResult = finished;
                 if (!finished) {
+                    NSLog(@"token");
                     NSLog(@"%@", @"构造highcam错误！");
                     [self.view makeToast:@"构造highcam错误！"];
+                }else{
+                    NSLog(@"high可用");
                 }
                 dispatch_group_leave(waitGroup);
             }];
@@ -126,6 +194,8 @@ const float KEmblemCenterConstraintKeyboardShow = -308;
                 if (!finished) {
                     NSLog(@"%@", @"构造roadcam错误！");
                     [self.view makeToast:@"构造roadcam错误！"];
+                }else {
+                    NSLog(@"roadcam可用");
                 }
                 dispatch_group_leave(waitGroup);
             }];
@@ -137,20 +207,32 @@ const float KEmblemCenterConstraintKeyboardShow = -308;
                 if (!finished) {
                     NSLog(@"%@", @"构造电子警察错误！");
                     [self.view makeToast:@"构造电子警察错误！"];
+                }else{
+                    NSLog(@"电子警察可用");
                 }
                 dispatch_group_leave(waitGroup);
             }];
             
             __block BOOL loginVideoSvc = YES;
             dispatch_group_enter(waitGroup);
-            [APP_DELEGATE.tvMgr loginWithInView:self.view completion:^(BOOL finished, NSError *error) {
-                if (!finished) {
-                    NSLog(@"登录宇视服务器失败,%@", error);
-                    [self.view makeToast:@"登录宇视服务器失败！"];
-                }
-                loginVideoSvc = finished;
-                dispatch_group_leave(waitGroup);
-            }];
+            @try {
+                [APP_DELEGATE.tvMgr loginWithInView:self.view completion:^(BOOL finished, NSError *error) {
+                    if (!finished) {
+                        NSLog(@"登录宇视服务器失败,%@", error);
+                        [self.view makeToast:[NSString stringWithFormat:@"%@",[error.userInfo objectForKey:@"desc"]]];
+                        
+                    }else{
+                        NSLog(@"get in");
+                    }
+                    loginVideoSvc = finished;
+                    dispatch_group_leave(waitGroup);
+                }];
+            } @catch (NSException *exception) {
+                NSLog(@"%@",exception);
+            } @finally {
+                
+            }
+            
             
              // 登录websocket服务器
             __block BOOL loginWs = YES;
@@ -158,17 +240,22 @@ const float KEmblemCenterConstraintKeyboardShow = -308;
             [APP_DELEGATE.wsMgr connectWithCompletion:^(NSError *err) {
                 if (err != nil) {
                     loginWs = NO;
+                    //NSLog(@"nnnnn");
                     dispatch_group_leave(waitGroup);
+                    
+                }else{
+                   // NSLog(@"nnnnn");
                 }
                 
                 [TCLogin loginWithUsr:self.loginTextField.text pwd:self.pwdTextField.text wsmgr:APP_DELEGATE.wsMgr withResult:^(RTWSMsg *resp) {
+                    NSLog(@"%@",self.loginTextField.text);
                     APP_DELEGATE.usr = [[TCUser alloc] initWithUsrId:self.loginTextField.text];
                     dispatch_group_leave(waitGroup);
                 }];
             }];
             
             dispatch_group_notify(waitGroup, dispatch_get_main_queue(), ^{
-                if (arcTokenResult && scResult && highCamResult && roadCamResult && elecPoliceResult && loginVideoSvc) {
+                if ( arcTokenResult&&scResult && highCamResult && roadCamResult && elecPoliceResult &&loginVideoSvc) {
                     [APP_DELEGATE changeRootViewController:[APP_DELEGATE buildMainController]];
                 } else {
                     NSLog(@"失败");

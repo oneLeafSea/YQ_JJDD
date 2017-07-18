@@ -14,17 +14,26 @@
 
 @interface TCTollgateDetailViewController ()
 
-@property(nonatomic, strong) UIImageView *imgView;
-
 @property(nonatomic, strong) UIWebView *webView;
 
 @end
 
 @implementation TCTollgateDetailViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    [self setup];
+   // [self setup];
+    
+    self.view.backgroundColor = [UIColor clearColor];
+    scv = [[UIScrollView alloc]initWithFrame:self.view.bounds];
+    [self.view addSubview:scv];
+    scv.delegate = self;
+    
+    scv.maximumZoomScale = 4.0;
+    scv.minimumZoomScale = 1.0;
+    
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,25 +41,66 @@
     
 }
 
-- (void)setup {
-    [self setupConstaints];
+-(void)addGestureRecognizerToView:(UIView *)view
+{
+    
+    UIPanGestureRecognizer *panG = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panView:)];
+    [view addGestureRecognizer:panG];
+    
+    UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
+    tapG.numberOfTapsRequired = 2;
+    [view addGestureRecognizer:tapG];
+}
+
+-(void)panView:(UIPanGestureRecognizer*)panGesture
+{
+    UIView *view = panGesture.view;
+    CGPoint transpoint = [panGesture translationInView:self.view];
+    view.center = CGPointMake(view.center.x+transpoint.x, view.center.y+transpoint.y);
+   if(_imgView.center.x < -200||_imgView.center.x>(3*self.view.center.x-40))
+   {
+       [self returnToOrignSize];
+   }
+    if(_imgView.center.y < -self.view.center.y||_imgView.center.y>(3*self.view.center.y-40))
+    {
+        [self returnToOrignSize];
+    }
+    [panGesture setTranslation:CGPointZero inView:self.view];
+}
+
+-(void)tapView:(UITapGestureRecognizer *)tapGesture
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    _imgView.transform = CGAffineTransformIdentity;
+    [_imgView setCenter:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2)];
+    [UIView commitAnimations];
+}
+
+-(void)returnToOrignSize
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    _imgView.transform = CGAffineTransformIdentity;
+    [_imgView setCenter:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2)];
+    [UIView commitAnimations];
 }
 
 
-- (void)setupConstaints {
-    [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-//    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.view);
-//    }];
+#pragma delegate
+
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return _imgView;
 }
 
 #pragma mark -getter
+
 - (UIImageView *)imgView {
     if (_imgView == nil) {
         _imgView = [[UIImageView alloc] initWithImage:nil];
-        [self.view addSubview:_imgView];
+        _imgView.frame =self.view.bounds;
+        [scv addSubview:_imgView];
     }
     return _imgView;
 }

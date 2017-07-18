@@ -10,8 +10,10 @@
 
 #import "RTWSMsg.h"
 #import <FMDB.h>
-
+#import "RTBKMsg.h"
 #import "RTWSMsgConstants.h"
+
+#import "RTDYMsg.h"
 
 @interface TCTollgateMgr()
 
@@ -23,6 +25,8 @@
 - (instancetype)init {
     if (self = [super init]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handlePushNotification:) name:kNotificationTollgatePush object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handlePushCtrollerNotification:) name:KNotificationTOllCtrollerPush object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hanlePushDYTollegate:) name:KNotificationDYTollegatePush object:nil];
         self.subcricbedDeivces = [[NSArray alloc] init];
     }
     return self;
@@ -32,6 +36,7 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationTollgatePush object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:KNotificationTOllCtrollerPush object:nil];
 }
 
 - (void)subscribeTollgateWithDevices:(NSArray *)devices
@@ -63,10 +68,25 @@
         [self.delegate TCTollgateMgr:self newPushNotifications: ns];
     }
 }
-
+-(void)handlePushCtrollerNotification:(NSNotification*)notification{
+   
+    RTBKMsg*msg = notification.object;
+    NSArray *ns = [TCTollgateNotification notificationArrayWithB_K:msg];
+    if ([self.delegate respondsToSelector:@selector(TCTollgateBKMgr:newPushNotifications:)]) {
+        [self.delegate TCTollgateBKMgr:self newPushNotifications: ns];
+    }
+}
+-(void)hanlePushDYTollegate:(NSNotification*)notification{
+    RTDYMsg *msg=notification.object;
+    NSArray *ns=[TCDYNotificatin notificationArray:msg];
+    if ([self.delegate respondsToSelector:@selector(TCTollgateDYMgr:newPushNotifications:)]) {
+        [self.delegate TCTollgateDYMgr:self newPushNotifications: ns];
+    }
+}
 - (void)addDeviece:(TVElecPoliceInfo *)epi wsmgr:(RTWSMgr *)wsmgr completion:(void(^)(id result, NSError *error))completion_ {
     NSMutableArray *arr = [[NSMutableArray alloc] initWithArray:self.subcricbedDeivces];
-    [arr addObject:epi];
+    //[arr addObject:epi];
+    //NSLog(@"longlonglogng--- %@",arr);
     [self subscribeTollgateWithDevices:arr wsmgr:wsmgr completion:^(id result, NSError *error) {
         if (completion_) {
             completion_(result, error);

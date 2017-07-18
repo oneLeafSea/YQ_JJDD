@@ -22,16 +22,28 @@
 #import "LogLevel.h"
 #import "TCEPCCalloutViewController.h"
 #import "TVElecPoliceInfo.h"
-
+#import "TCEPCTollegateViewController.h"
+#import "TCVideoContainerView.h"
+#import "TCTollgateDYViewController.h"
+#import "TLAPI.h"
 #ifdef YUAN_QU_DA_DUI
-#define kBaseMap @"http://10.100.8.102/sipsd/rest/services/SIPTPG/Basemap/MapServer"
+#define kBaseMap @"http://10.100.8.105/sipsd/rest/services/SIPTPG/Basemap/MapServer"
+//#define kBaseMap @"http://10.100.8.102/sipsd/rest/services/SIPTPG/Basemap/MapServer"
 #else
-#define kBaseMap @"http://www.arcgisonline.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer"
+//#define kBaseMap @"http://www.arcgisonline.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer"
+#define kBaseMap @"http://10.100.8.105/sipsd/rest/services/SIPIMG_2015/MapServer"
 #endif
+//#ifdef YUAN_QU_DA_DUI
+//#define kBaseMap @"http://10.44.51.138/sipsd/rest/services/SIPTPG/Basemap/MapServer"
+//
+//#else
+//
+//#define kBaseMap @"http://10.44.51.138/sipsd/rest/services/SIPIMG_2015/MapServer"
+//#endif
 
-//NSString *kHcDeviceId = @"hcDeviceId";
-//NSString *kRcDeviceId = @"rcDeviceId";
-//NSString *kEpDeviceId = @"epDeviceId";
+NSString *kHcDeviceId = @"hcDeviceId";
+NSString *kRcDeviceId = @"rcDeviceId";
+NSString *kEpDeviceId = @"epDeviceId";
 NSString *kCtrlerId = @"ctrlerId";
 NSString *kCam = @"cam";
 
@@ -41,6 +53,7 @@ NSString *kCam = @"cam";
 @property(nonatomic, strong) AGSGraphicsLayer *scGraphicsLayer;
 @property(nonatomic, strong) AGSGraphicsLayer *highCamGraphicsLayer;
 @property(nonatomic, strong) AGSGraphicsLayer *roadCamGraphicsLayer;
+@property(nonatomic,strong)TCVideoContainerView*cvcUse;
 @property(nonatomic, strong) AGSGraphicsLayer *epGraphicsLayer;
 
 @property(nonatomic, strong) TCMapLayerSelectionView *layerSelectionView;
@@ -51,8 +64,9 @@ NSString *kCam = @"cam";
 @property(nonatomic, strong) UIButton *shiftBtn;
 @property(nonatomic, strong) NSMutableArray *mutableSelSCArray;
 @property(nonatomic, strong) NSMutableArray *mutableSelCamArray;
+@property(nonatomic,strong) NSMutableArray*arr;
 @property(nonatomic, strong) NSMutableDictionary *wholeCams;
-
+@property(nonatomic,strong)NSMutableString *mustr;
 
 @end
 
@@ -65,9 +79,12 @@ NSString *kCam = @"cam";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mutableSelSCArray = [[NSMutableArray alloc] initWithCapacity:32];
+    self.arr=[[NSMutableArray alloc]initWithCapacity:32];
 //    self.mutableSelHcArray = [[NSMutableArray alloc] initWithCapacity:4];
+    self.mustr=[[NSMutableString alloc]init];
     self.mutableSelCamArray = [[NSMutableArray alloc] initWithCapacity:4];
     self.wholeCams = [[NSMutableDictionary alloc] initWithCapacity:1024];
+    self.mutaArr=[[NSArray alloc]init];
     [self setupConstraints];
     [self setupMap];
     [self setupSearch];
@@ -115,9 +132,11 @@ NSString *kCam = @"cam";
 - (void)setupMap {
     NSURL *mapUrl = [NSURL URLWithString:kBaseMap];
 #ifdef YUAN_QU_DA_DUI
-    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"tl.mapToken"];
-    AGSCredential *credential = [[AGSCredential alloc] initWithToken:token];
-    AGSTiledMapServiceLayer *tiledLyr = [AGSTiledMapServiceLayer tiledMapServiceLayerWithURL:mapUrl credential:credential];
+    //NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"tl.mapToken"];
+    //AGSCredential *credential = [[AGSCredential alloc] initWithToken:token];
+    
+    //AGSTiledMapServiceLayer *tiledLyr = [AGSTiledMapServiceLayer tiledMapServiceLayerWithURL:mapUrl credential:credential];
+    AGSTiledMapServiceLayer *tiledLyr = [AGSTiledMapServiceLayer tiledMapServiceLayerWithURL:mapUrl];
     tiledLyr.delegate = self;
     [self.mapView addMapLayer:tiledLyr withName:@"Tiled Layer"];
     AGSEnvelope *env = [AGSEnvelope envelopeWithXmin:57235.644737956158 ymin:42551.117602235208 xmax:65744.661755990179 ymax:47308.335450004241 spatialReference:nil];
@@ -237,7 +256,18 @@ NSString *kCam = @"cam";
     }];
     return found;
 }
-
+- (BOOL)isSelectedEpiCam:(NSString *)deviceId {
+    __block BOOL found = NO;
+    [self.mutableSelCamArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString *devideid = obj;
+        if ([devideid isEqualToString:deviceId]) {
+            found = YES;
+            *stop = YES;
+        }
+        
+    }];
+    return found;
+}
 - (BOOL)isSelectedInCamArry:(AGSGraphic *) graphic {
     __block BOOL found = NO;
     [self.mutableSelCamArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -357,22 +387,57 @@ NSString *kCam = @"cam";
 -(void)layer:(AGSLayer *)layer didInitializeSpatialReferenceStatus:(BOOL)srStatusValid {
     
 }
-
+//-(void)parseTunnel:(NSDictionary*)dict{
+//    TVElecPoliceInfo *epi=[[TVElecPoliceInfo alloc]init];
+//    NSArray*arr=[dict objectForKey:epi.tunnel];
+//    for (int i=0; i<arr.count; i++) {
+//        NSData*listdata=[arr objectAtIndex:i];
+//        
+//    }
+//    
+//}
 #pragma mark - private method
 - (void)signalCtrller:(TLSignalCtrlerInfo *)scInfo graphic:(AGSGraphic *)graphic DidSelected:(BOOL)selected {
     if (selected) {
+        
+        
         [self.mutableSelSCArray addObject:[scInfo.ctrlerId copy]];
-        AGSPictureMarkerSymbol *graphicSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"map_ctrller_sel"];
-        graphic.symbol = graphicSymbol;
-    } else {
+        AGSPictureMarkerSymbol *graphics=[AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"map_ctrller_sel"];
+        graphic.symbol = graphics;
+        NSString *str = scInfo.videoTunnels;
+        NSLog(@"%@",str);
+        NSArray *arr = [str componentsSeparatedByString:@","]; //用,来分割string
+        NSString *left = arr.firstObject;
+        NSString *right = arr.lastObject;
+        
+        TVCamInfo *camInfo1=[APP_DELEGATE.tlMgr getElecPoliceInfoByDeviceId:left];
+        TVCamInfo *camInfo2=[APP_DELEGATE.tlMgr getElecPoliceInfoByDeviceId:right];
+        NSLog(@"%@",camInfo1.deviceId);
+        NSLog(@"%@",camInfo2.deviceNam);
+        if (camInfo1.deviceId) {
+            [graphic setValue:camInfo1.deviceId forKey:kCam];
+            [self cam:camInfo1 graphic:graphic didSelected:YES];
+        }
+        if (camInfo2.deviceId) {
+            [graphic setValue:camInfo2.deviceId forKey:kCam];
+            [self cam:camInfo2 graphic:graphic didSelected:YES];
+        }
+      
+        } else {
         [self removeSelSignalCtrlerById:scInfo.ctrlerId];
+        [self.mutableSelCamArray removeObject:graphic];
         AGSPictureMarkerSymbol *graphicSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:[scInfo getSCImageByStatus]];
         graphic.symbol = graphicSymbol;
     }
     
     if ([self.delegate respondsToSelector:@selector(mapViewController:SignalCtrlerDidSelected:SignalCtrlerInfo:)]) {
         [self.delegate mapViewController:self SignalCtrlerDidSelected:selected SignalCtrlerInfo:scInfo];
+        //获取信号控制的信息
+        
+
+        
     }
+
 }
 
 - (void)cam:(TVCamInfo *)camInfo graphic:(AGSGraphic *)graphic didSelected:(BOOL)selected {
@@ -386,7 +451,14 @@ NSString *kCam = @"cam";
         }
         
         [self.mutableSelCamArray addObject:graphic];
+        
+        TVCamInfo*camInfo=[self getCamInfoByGraphic:graphic];
+        
+        NSLog(@"%@",camInfo.deviceId);
+        
         graphic.symbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:camInfo.selectedImgName];
+        
+        
     } else {
         graphic.symbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:[camInfo getCamImagByStatus]];
         [self.mutableSelCamArray removeObject:graphic];
@@ -399,6 +471,7 @@ NSString *kCam = @"cam";
     if ([graphic hasAttributeForKey:kCtrlerId]) {
         NSString *ctrllerId = [graphic attributeForKey:kCtrlerId];
         TLSignalCtrlerInfo *scInfo = [APP_DELEGATE.tlMgr getSCInfoByCtrlerId:ctrllerId];
+        NSLog(@"%@",ctrllerId);
         if (scInfo != nil) {
             BOOL selected = [self isSelectedSignalCtrler:ctrllerId];
             if (selected) {
@@ -409,7 +482,9 @@ NSString *kCam = @"cam";
                 } else {
                     DDLogInfo(@"点击了坏的信号机。");
                 }
+                
             }
+           
         }
         return NO;
     }
@@ -422,6 +497,7 @@ NSString *kCam = @"cam";
             self.epcCalloutVC = [[TCEPCCalloutViewController alloc] initWithGraphic:graphic videoSelected:epi.videoSelected tollgateSelected:epi.tollageSelected];
             self.epcCalloutVC.delegate = self;
             self.mapView.callout.customView = self.epcCalloutVC.view;
+            
             return YES;
         }
         
@@ -459,15 +535,19 @@ NSString *kCam = @"cam";
         [self.mutableSelSCArray addObject:[scInfo.ctrlerId copy]];
         AGSPictureMarkerSymbol *graphicSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"map_ctrller_sel"];
         signalCtrllerCallOutViewController.graphic.symbol = graphicSymbol;
+       
     } else {
         [self removeSelSignalCtrlerById:scInfo.ctrlerId];
         AGSPictureMarkerSymbol *graphicSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:[scInfo getSCImageByStatus]];
         signalCtrllerCallOutViewController.graphic.symbol = graphicSymbol;
+        
     }
     
     if ([self.delegate respondsToSelector:@selector(mapViewController:SignalCtrlerDidSelected:SignalCtrlerInfo:)]) {
         [self.delegate mapViewController:self SignalCtrlerDidSelected:selected SignalCtrlerInfo:scInfo];
+       
     }
+    
     [self.mapView.callout dismiss];
 }
 
@@ -476,6 +556,7 @@ NSString *kCam = @"cam";
              hcLayerDidSelected:(BOOL)selected {
     if (selected) {
          [self.mapView addMapLayer:self.highCamGraphicsLayer withName:@"hc_graphlayer"];
+       
     } else {
         [self.mapView removeMapLayer:self.highCamGraphicsLayer];
     }
@@ -520,11 +601,13 @@ NSString *kCam = @"cam";
     if ([data isKindOfClass:[TVRoadCamInfo class]]) {
         TVRoadCamInfo *rc = data;
         [self.mapView centerAtPoint:[AGSPoint pointWithX:rc.pt.x y:rc.pt.y spatialReference:self.mapView.spatialReference] animated:YES];
+        
     }
     
     if ([data isKindOfClass:[TVHighCamInfo class]]) {
         TVHighCamInfo *hc = data;
         [self.mapView centerAtPoint:[AGSPoint pointWithX:hc.pt.x y:hc.pt.y spatialReference:self.mapView.spatialReference] animated:YES];
+       
     }
     
     if ([data isKindOfClass:[TVElecPoliceInfo class]]) {
@@ -535,6 +618,7 @@ NSString *kCam = @"cam";
     if ([data isKindOfClass:[TLSignalCtrlerInfo class]]) {
         TLSignalCtrlerInfo *sci = data;
         [self.mapView centerAtPoint:[AGSPoint pointWithX:sci.tlPoint.x y:sci.tlPoint.y spatialReference:self.mapView.spatialReference] animated:YES];
+        
     }
 }
 
@@ -549,13 +633,16 @@ NSString *kCam = @"cam";
         AGSGraphic *g = obj;
         NSString *ctrllerId = [g attributeForKey:kCtrlerId];
         if ([self isSelectedSignalCtrler:ctrllerId]) {
+            
             return;
         }
         TLSignalCtrlerInfo *scInfo = [signaleCtrlerInfos objectForKey:ctrllerId];
         if (scInfo) {
             g.symbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:[scInfo getSCImageByStatus]];
+           
         }
     }];
+    
 }
 
 - (void)TLMgr:(TLMgr *)tlMgr highCamInfoDidUpdate:(NSDictionary *)highCamInfos {
@@ -564,10 +651,12 @@ NSString *kCam = @"cam";
         NSString *hcDeviceId = [g attributeForKey:kCam];
         if ([self isSelectedInCamArry:g]) {
             return;
+            
         }
         TVHighCamInfo *hcInfo = [highCamInfos objectForKey:hcDeviceId];
         if (hcInfo) {
             g.symbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:[hcInfo getCamImagByStatus]];
+            
         }
     }];
 }
@@ -577,11 +666,13 @@ NSString *kCam = @"cam";
         AGSGraphic *g = obj;
         if ([self isSelectedInCamArry:g]) {
             return;
+            
         }
         NSString *rcDeviceId = [g attributeForKey:kCam];
         TVRoadCamInfo *rcInfo = [roadCamInfos objectForKey:rcDeviceId];
         if (rcInfo) {
             g.symbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:[rcInfo getCamImagByStatus]];
+            
         }
     }];
 }
@@ -605,19 +696,41 @@ NSString *kCam = @"cam";
     TVElecPoliceInfo *epi = (TVElecPoliceInfo *)camInfo;
     epi.tollageSelected = selected;
     if (selected) {
-        [APP_DELEGATE.tgMgr addDeviece:epi wsmgr:APP_DELEGATE.wsMgr completion:nil];
+        //[APP_DELEGATE.tgMgr addDeviece:epi wsmgr:APP_DELEGATE.wsMgr completion:nil];
+      //  [APP_DELEGATE.tDyC addDeviceId:epi];
+        
+        [self.arr addObject:epi.tollgateId];
+//        NSLog(@"%ld",self.arr.count);
+        NSUserDefaults *ud=[NSUserDefaults standardUserDefaults];
+       NSString *name=[ud objectForKey:@"tv.user"];
+        NSString *strm=[self.arr componentsJoinedByString:@","];
+
+        [TLAPI loginTollegateDYWithUserName:name arr:strm loginFlag:@"false" completion:^(BOOL finished) {
+            if (finished) {
+                NSLog(@"%@.ccccc",name);
+            }
+        }];
+      
+        
     } else {
-        [APP_DELEGATE.tgMgr removeDevice:epi wsmgr:APP_DELEGATE.wsMgr completion:nil];
+        //[APP_DELEGATE.tgMgr removeDevice:epi wsmgr:APP_DELEGATE.wsMgr completion:nil];
+        //[APP_DELEGATE.tDyC removeDeviceId:epi];
+        [self.arr removeObject:epi.tollgateId];
+        NSLog(@"self.arr%@",self.arr);
     }
     
 }
 
 - (void)TCEPCCalloutViewController:(TCEPCCalloutViewController *)vc videoDidSelected:(BOOL)selected {
     TVCamInfo *camInfo = [self getCamInfoByGraphic:vc.graphic];
+    
+    
     TVElecPoliceInfo *epi = (TVElecPoliceInfo *)camInfo;
+    
     epi.videoSelected = selected;
     [self cam:camInfo graphic:vc.graphic didSelected:selected];
-    DDLogInfo(@"video tapped");
+    
+    
 }
 
 @end

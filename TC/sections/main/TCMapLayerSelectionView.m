@@ -10,6 +10,7 @@
 
 #import <Masonry/Masonry.h>
 #import "BEMCheckBox.h"
+#import "UIColor+Hexadecimal.h"
 
 
 @interface TCMapLayerSelectionView()<BEMCheckBoxDelegate>
@@ -210,8 +211,8 @@
     checkBox.boxType = BEMBoxTypeSquare;
     checkBox.onAnimationType = BEMAnimationTypeFade;
     checkBox.offAnimationType = BEMAnimationTypeFade;
-    checkBox.onTintColor = [UIColor orangeColor];
-    checkBox.onCheckColor = [UIColor orangeColor];
+    checkBox.onTintColor = [UIColor colorWithHex:@"#ff5252"];
+    checkBox.onCheckColor = [UIColor colorWithHex:@"#ff5252"];
     checkBox.delegate = self;
     return checkBox;
 }

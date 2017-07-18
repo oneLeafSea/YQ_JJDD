@@ -8,6 +8,7 @@
 
 #import "TLCrossScheme.h"
 #import "LogLevel.h"
+#import "JSONKit.h"
 
 @interface TLCrossScheme()
 
@@ -96,6 +97,7 @@
 }
 
 + (NSString *)getSnNameBySn:(NSInteger)sn {
+ 
     NSArray *snArray = @[
                              @"东西直行",
                              @"东西左转",
@@ -110,13 +112,15 @@
                              @"东西放行+北右",
                              @"南北放行+西右"
                              ];
-    NSString *name = nil;
-    if (snArray.count >= sn && sn > 0) {
-        name = snArray[sn-1];
-    }
-//    DDLogInfo(@"name: %@ sn: %ld", name, (long)sn);
-    return name;
+     NSString *name = nil;
+        if (snArray.count >= sn && sn > 0) {
+            name = snArray[sn-1];
+        }
     
+    DDLogInfo(@"name: %@ sn: %ld", name, (long)sn);
+    
+    
+    return name;
     
 }
 

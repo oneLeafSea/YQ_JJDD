@@ -11,15 +11,20 @@
 #import "TCTollgateDetailViewController.h"
 #import "TCTollgateNotification.h"
 #import "AppDelegate.h"
+
 #import "TCBriefTableViewCell.h"
+#import "TCTollegateBKDetailViewController.h"
+
+#import "UIColor+Hexadecimal.h"
 
 @interface TCTollgateViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong) UITableView *briefTableView;
-
+@property(nonatomic,strong)UITableView *briefBKTableView;
+@property(nonatomic,assign)BOOL isSelected;
 @property(nonatomic, strong) TCTollgateDetailViewController *detailVC;
-
 @property(nonatomic, strong) NSArray *tgns;
+
 
 @end
 
@@ -27,11 +32,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.tgns = [TCTollgateNotification getNotificationWithDbq:APP_DELEGATE.usr.dbq ByLimit:100];
+   
     self.view.backgroundColor = [UIColor whiteColor];
+    NSArray *arr1=[[NSArray alloc]init];
+    NSArray *arr2=[[NSArray alloc]init];
+   arr1=[TCTollgateNotification getNotificationWithDbq:APP_DELEGATE.usr.dbq ByLimit:100];
+    arr2=[TCTollgateNotification getNotificationBKWithDbq:APP_DELEGATE.usr.dbq ByLimit:100];
+    NSMutableArray *arr=[[NSMutableArray alloc]initWithCapacity:200];
+    for (int i=0; i<arr1.count; i++) {
+        [arr addObject:arr1[i]];
+   }
+    for (int i=0; i<arr2.count; i++) {
+        [arr addObject:arr2[i]];
+    }
+    
+    NSArray *sortDes = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"capTime" ascending:NO]];
+    [arr sortUsingDescriptors:sortDes];
+    self.tgns=arr;
+    [self.briefTableView reloadData];
     [self setupRefresh];
     [self setup];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +64,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.briefTableView deselectRowAtIndexPath:[self.briefTableView indexPathForSelectedRow] animated:YES];
 
 }
 
@@ -56,8 +79,24 @@
 }
 
 -(void)refreshShowChange:(UIRefreshControl *)refContrl
-{
-    [TCTollgateNotification getNotificationWithDbq:APP_DELEGATE.usr.dbq ByLimit:100];
+{   
+    //self.tgns = [TCTollgateNotification getNotificationWithDbq:APP_DELEGATE.usr.dbq ByLimit:100];
+    NSArray *arr1=[[NSArray alloc]init];
+    NSArray *arr2=[[NSArray alloc]init];
+    arr1=[TCTollgateNotification getNotificationWithDbq:APP_DELEGATE.usr.dbq ByLimit:100];
+    arr2=[TCTollgateNotification getNotificationBKWithDbq:APP_DELEGATE.usr.dbq ByLimit:100];
+    NSMutableArray *arr=[[NSMutableArray alloc]initWithCapacity:200];
+    for (int i=0; i<arr1.count; i++) {
+        [arr addObject:arr1[i]];
+    }
+    for (int i=0; i<arr2.count; i++) {
+        [arr addObject:arr2[i]];
+    }
+    
+    NSArray *sortDes = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"capTime" ascending:NO]];
+    [arr sortUsingDescriptors:sortDes];
+    self.tgns=arr;
+    [self.briefTableView reloadData];
     [refContrl endRefreshing];
 }
 
@@ -76,13 +115,14 @@
         make.width.equalTo(@300);
         make.bottom.equalTo(self.view);
     }];
-    
+  
     [self.detailVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view);
         make.left.equalTo(self.briefTableView.mas_right);
         make.bottom.equalTo(self.view);
         make.right.equalTo(self.view);
     }];
+  
 }
 
 #pragma mark - getter
@@ -111,28 +151,78 @@
 #pragma mark - tableView delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"/%ld",self.tgns.count);
     return self.tgns.count;
 }
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+   return UITableViewAutomaticDimension;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"demo"];
-//    cell.textLabel.text = @"测试";
-    TCBriefTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TCBriefTableViewCell" forIndexPath:indexPath];
-    TCTollgateNotification *tgn = [self.tgns objectAtIndex:indexPath.row];
-    cell.locationLbl.text =tgn.location;
-    cell.plateLbl.text =tgn.plateCode;
-    cell.descLbl.text =[NSString stringWithFormat:@"%@于%@在%@以%@行驶,违法代码%@", tgn.plateCode, tgn.capTime, tgn.location ,tgn.speed, tgn.alarmContent] ;
     
-//    cell.locationLbl.text =tgn ;
-//    cell.plateLbl.text = @"苏E12345";
-//    cell.descLbl.text = @"这是一个描述的label这是一个描述的label这是一个描述的label这是一个描述的label这是一个描述的label,这是一个描述的label这是一个描述的label这是一个描述的label这是一个描述的label这是一个描述的label";
-    return cell;
+     TCBriefTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TCBriefTableViewCell" forIndexPath:indexPath];
+     TCTollgateNotification *tgn = [self.tgns objectAtIndex:indexPath.row];
+        cell.locationLbl.text =tgn.location;
+        cell.plateLbl.text =tgn.plateCode;
+    NSLog(@"------>%@------%@-------%@",tgn.alarmControlContent,tgn.alarmControlDes,tgn.alarmContent);
+    if (tgn.alarmContrlType!=NULL&&tgn.alarmContent == NULL&&tgn.alarmControlDes!=NULL)
+    {
+        cell.descLbl.text =[NSString stringWithFormat:@"布控告警车辆%@于%@在%@以%@速率行驶", tgn.plateCode, tgn.capTime, tgn.location ,tgn.speed ] ;
+        cell.resonLbl.text=tgn.alarmContrlType;
+        cell.descLbl.font = [UIFont fontWithName:@"Arial-BoldMT" size:18];
+        cell.resonLbl.font = [UIFont fontWithName:@"Arial-BoldMT" size:18];
+        //cell.backgroundColor=[UIColor redColor];
+        cell.desriptionLbl.text = @"布控告警车辆详情";
+        cell.desriptionLbl.textColor = [UIColor redColor];
+    }
+    else if(tgn.alarmContent !=NULL&&tgn.alarmControlDes == NULL)
+    {
+        cell.descLbl.text =[NSString stringWithFormat:@"违法车辆%@于%@在%@以%@速率行驶,违法代码%@", tgn.plateCode, tgn.capTime, tgn.location ,tgn.speed, tgn.alarmContent] ;
+        cell.descLbl.font = [UIFont systemFontOfSize:14];
+        cell.resonLbl.hidden = YES;
+        [cell.resonLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(@1);
+        }];
+        cell.desriptionLbl.text = @"违法车辆";
+        cell.desriptionLbl.textColor = [UIColor lightGrayColor];
+        cell.backgroundColor = [UIColor whiteColor];
+    }
+    
+         return cell;
+
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    _isSelected=YES;
+    
+    
+        TCTollgateNotification *tgn = [self.tgns objectAtIndex:indexPath.row];
+    
+        [self.detailVC setTgNotification:tgn];
+    //[self.detailVC addGestureRecognizerToView:self.detailVC.imgView];
+    TCBriefTableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
+
+    if (tgn.alarmControlDes) {
+        cell.desriptionLbl.text=tgn.alarmControlDes;
+        cell.desriptionLbl.textColor = [UIColor redColor];
+    }
+    [tableView beginUpdates];
+    [tableView endUpdates];
+    
+}
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    TCBriefTableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
     TCTollgateNotification *tgn = [self.tgns objectAtIndex:indexPath.row];
-    [self.detailVC setTgNotification:tgn];
+    if (tgn.alarmControlDes) {
+        cell.desriptionLbl.text=@"布控车辆详情";
+        //[self.detailVC returnToOrignSize];
+        cell.desriptionLbl.textColor = [UIColor redColor];
+    }
+    
+    [tableView beginUpdates];
+    [tableView endUpdates];
     
 }
 

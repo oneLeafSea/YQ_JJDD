@@ -14,5 +14,6 @@
 @property(nonatomic,strong)UILabel *locationLbl;
 @property(nonatomic,strong)UILabel *plateLbl;
 @property(nonatomic,strong)UILabel *descLbl;
-
+@property(nonatomic,strong)UILabel *desriptionLbl;
+@property(nonatomic,strong)UILabel *resonLbl;
 @end

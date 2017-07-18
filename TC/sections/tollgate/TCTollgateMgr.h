@@ -11,7 +11,7 @@
 #import "TCTollgateNotification.h"
 #import "TVElecPoliceInfo.h"
 
-
+#import "TCDYNotificatin.h"
 @protocol TCTollgateMgrDelegate;
 
 @interface TCTollgateMgr : NSObject
@@ -41,5 +41,6 @@
 @protocol TCTollgateMgrDelegate <NSObject>
 
 - (void)TCTollgateMgr:(TCTollgateMgr *)tgMgr newPushNotifications:(NSArray *)notifications;
-
+-(void)TCTollgateBKMgr:(TCTollgateMgr*)tgMgr newPushNotifications:(NSArray *)notifications;
+-(void)TCTollgateDYMgr:(TCTollgateMgr*)tgMgr newPushNotifications:(NSArray *)notifications;
 @end

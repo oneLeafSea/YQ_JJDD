@@ -10,7 +10,10 @@
 #import "TLConstants.h"
 #import "env.h"
 #import "JSONKit.h"
-
+#import "TCDYNotificatin.h"
+#import "RTDYMsg.h"
+#import "RTWSMsg.h"
+#import "RTWSMsgConstants.h"
 @implementation TLAPI
 
 + (NSURLSession *)tlSession {
@@ -27,6 +30,7 @@
 #ifdef YUAN_QU_DA_DUI
     NSURLSession *session = [TLAPI tlSession];
     NSString *strUrl = [NSString stringWithFormat:kLoginUrlFmt, usrName, pwd];
+    
     [[session dataTaskWithURL:[NSURL URLWithString:strUrl] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -54,6 +58,7 @@
             if (completion) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completion(NO, error);
+                    //NSLog(@"++++++");
                 });
             }
         }
@@ -71,24 +76,29 @@
 }
 
 + (void)getArcgisTokenWithUsrName:(NSString *)usrName
-                              pwd:(NSString *)pwd
-                       completion:(void(^)(NSString *token, BOOL finished))completion {
+                             pwd:(NSString *)pwd
+                      completion:(void(^)(NSString *token, BOOL finished))completion
+
+{
 #ifdef YUAN_QU_DA_DUI
     NSURLSession *session = [TLAPI tlSession];
-    NSString *strUrl = [NSString stringWithFormat:kArcgisTokenUrlFmt, usrName, pwd];
-    [[session dataTaskWithURL:[NSURL URLWithString:strUrl] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error == nil) {
-            __block NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            if ([str isEqualToString:@"You are not authorized to access this information"]) {
-                str = nil;
-            }
+    NSURL *strUrl = [NSURL URLWithString:kArc];
+    
+    [[session dataTaskWithURL:strUrl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
+      {
+       if (error == nil) {
+           __block NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+           if ([str isEqualToString:@"You are not authorized to access this information"]) {
+               str = nil;
+           }
             if (completion) {
-                dispatch_async(dispatch_get_main_queue(), ^{
+               dispatch_async(dispatch_get_main_queue(), ^{
                     completion(str, ((str == nil) ? NO : YES));
-                });
+                    NSLog(@"----------");
+               });
             }
         } else {
-            if (completion) {
+           if (completion) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completion(nil, NO);
                 });
@@ -121,6 +131,7 @@
             if (completion) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completion(str, YES);
+                    //NSLog(@"fffffff");
                 });
             }
         } else {
@@ -474,7 +485,9 @@
             if (completion) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completion(str, YES);
+                   // NSLog(@"sssss");
                 });
+                
             }
         } else {
             if (completion) {
@@ -499,6 +512,7 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completion(str, YES);
                 });
+               
             }
         } else {
             if (completion) {
@@ -510,7 +524,9 @@
     }] resume];
     
 }
-
+//+(void)getdw:(NSString*)w completion:(void(^)(NSString*json,BOOL fin))completion{
+//    
+//}
 + (void)getDWCrossRunInfoWithRoadNo:(NSString *)roadNo
                                token:(NSString *)token
                           Completion:(void(^)(NSString *jsonResult, BOOL finished))completion {
@@ -543,7 +559,62 @@
     
     [getDataTask resume];
 }
++ (void)getSingnalCtrlwithTOKEN:(NSString *)token
+                       crossIds:(NSString*)crossIds
+                        USER_ID:(NSString*)userId REQ_ID:(NSString*)Id RESULT_PUSH_URL:(NSString*)result_push_url
+                         
+                     Completion:(void(^)(BOOL finished))completion {
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    configuration.HTTPAdditionalHeaders = @{@"token":token};
+    configuration.timeoutIntervalForRequest = 10;
+    configuration.timeoutIntervalForResource = 12;
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
+    
+   NSURL *url=[NSURL URLWithString:KDWSingalCtrlReq];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:10.0];
+    NSError *error=nil;
+    [request addValue:token forHTTPHeaderField:@"TOkEN"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    NSMutableDictionary *params=[[NSMutableDictionary alloc]init];
+    
+    [params setValue:userId forKey:@"userId"];
+    [params setValue:Id forKey:@"reqId"];
+    [params setValue:result_push_url forKey:@"resultPushUrl"];
+    [params setValue:crossIds forKey:@"crossIds"];
+    [params setValue:token forKey:@"TOKEN"];
+    NSData *postData=[NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
+    NSString *strmm=[[NSString alloc]initWithData:postData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",strmm);
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:postData];
+    
+    NSURLSessionDataTask *postDataTask=[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *  response, NSError *error) {
+        if (error == nil) {
+           NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",str);
+            if (completion) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                   // completion(str, YES);
+                    completion(YES);
+                    
+                });
+            }
+        } else {
+            if (completion) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(NO);
+                });
+            }
+        }
 
+    }];
+    
+    [postDataTask resume];
+}
 + (void)setDWCrossRunStageWithRoadNo:(NSString *)roadNo
                               stageSn:(NSString *)stageSn
                              lockTime:(NSString *)lockTime
@@ -621,6 +692,7 @@
                 if (finished) {
                     NSDictionary *dict = [result objectFromJSONString];
                     NSArray *stageDict = [TLAPI getPlanNo:dict[@"planNo"] from:SIDict[@"planList"]];
+      
                     completion_(stageDict, YES);
                 } else {
                     completion_(nil, NO);
@@ -646,4 +718,196 @@
     return dict;
 }
 
++(void)getUrlfromOurWebSocketWithreqid:(NSString*)reqId completion:(void(^)(NSString*jsonResult,BOOL finished))completion{
+    
+    NSURLSession *tlsession=[TLAPI tlSession];
+    NSString *strUrl=[NSString stringWithFormat:KOWFSingalCtrlReq,reqId];
+    NSURL *url=[NSURL URLWithString:strUrl];
+    NSLog(@"%@",strUrl);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    [request setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask *getDataTask = [tlsession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *
+                                                        error){
+       if (error == nil) {
+            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",str);
+            if (completion) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(str,YES);
+                    
+                });
+            }
+        } else {
+            if (completion) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    completion(nil,NO);
+                    NSLog(@"123");
+                    NSLog(@"%@",error);
+                });
+            }
+        }
+    }];
+    
+    [getDataTask resume];
+}
++(void)getSingalCtrlReleaseToken:(NSString *)token reqId:(NSString*)reqId  userId:(NSString*)userId completion:(void(^)(BOOL finished))completion{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    configuration.HTTPAdditionalHeaders = @{@"token":token};
+    configuration.timeoutIntervalForRequest = 10;
+    configuration.timeoutIntervalForResource = 12;
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
+    
+    NSURL *url=[NSURL URLWithString:KDWSingalCtrlRelease];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:10.0];
+    NSError *error=nil;
+    [request addValue:token forHTTPHeaderField:@"TOkEN"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    NSMutableDictionary *params=[[NSMutableDictionary alloc]init];
+    
+    [params setValue:userId forKey:@"userId"];
+    [params setValue:reqId forKey:@"reqId"];
+    
+    //[params setValue:token forKey:@"TOKEN"];
+    NSData *postData=[NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
+    NSString *strmm=[[NSString alloc]initWithData:postData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",strmm);
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:postData];
+    
+    NSURLSessionDataTask *postDataTask=[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *  response, NSError *error) {
+        if (error == nil) {
+            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",str);
+            
+            if (completion) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // completion(str, YES);
+                    completion(YES);
+                    
+                });
+            }
+        } else {
+            if (completion) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(NO);
+                });
+            }
+        }
+        
+    }];
+    
+    [postDataTask resume];
+}
++(void)loginTollegateDYWithUserName:(NSString*)username arr:(NSString*)arr loginFlag:(NSString *)loginFlag completion:(void(^)(BOOL finished))completion{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    //configuration.HTTPAdditionalHeaders = @{@"token":token};
+    //configuration.timeoutIntervalForRequest = 10;
+    //configuration.timeoutIntervalForResource = 12;
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
+    
+    NSURL *url=[NSURL URLWithString:KLoginDYUrl];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:30.0];
+    NSError *error=nil;
+    //[request addValue:token forHTTPHeaderField:@"TOkEN"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    NSMutableDictionary *params=[[NSMutableDictionary alloc]init];
+    
+    [params setValue:username forKey:@"username"];
+    [params setValue:arr forKey:@"venarr"];
+    [params setValue:loginFlag  forKey:@"loginFlag"];
+    //[params setValue:token forKey:@"TOKEN"];
+    NSData *postData=[NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
+    NSString *strmm=[[NSString alloc]initWithData:postData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",strmm);
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:postData];
+    
+    NSURLSessionDataTask *postDataTask=[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *  response, NSError *error) {
+        if (error == nil) {
+            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",str);
+            if (completion) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // completion(str, YES);
+                    completion(YES);
+                    
+                });
+            }
+        } else {
+            if (completion) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(NO);
+                    NSLog(@"%@",error);
+                });
+            }
+        }
+        
+    }];
+    
+    [postDataTask resume];
+}
+//+(void)getDYInfomationWithUsername:(NSString *)username completion:(void(^)(BOOL finished))completion{
+//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    //configuration.HTTPAdditionalHeaders = @{@"token":token};
+//    //configuration.timeoutIntervalForRequest = 10;
+//    //configuration.timeoutIntervalForResource = 12;
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
+//    
+//    NSURL *url=[NSURL URLWithString:KGetDYUrl];
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+//                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+//                                                       timeoutInterval:30.0];
+//    NSError *error=nil;
+//    //[request addValue:token forHTTPHeaderField:@"TOkEN"];
+//    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+//    NSMutableDictionary *params=[[NSMutableDictionary alloc]init];
+//    
+//    [params setValue:username forKey:@"username"];
+//    //[params setValue:arr forKey:@"arr"];
+//    
+//    //[params setValue:token forKey:@"TOKEN"];
+//    NSData *postData=[NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
+//    NSString *strmm=[[NSString alloc]initWithData:postData encoding:NSUTF8StringEncoding];
+//    NSLog(@"%@",strmm);
+//    [request setHTTPMethod:@"POST"];
+//    [request setHTTPBody:postData];
+//    
+//    NSURLSessionDataTask *postDataTask=[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *  response, NSError *error) {
+//        if (error == nil) {
+//            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//            NSDictionary *dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+//            NSLog(@"--%@",str);
+//            RTDYMsg *rtd=[[RTDYMsg alloc]initWithDict:dic];
+//            [[NSNotificationCenter defaultCenter]postNotificationName:KNotificationDYTollegatePush object:rtd];
+//            if (completion) {
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    // completion(str, YES);
+//                    completion(YES);
+//                    
+//                });
+//            }
+//        } else {
+//            if (completion) {
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    completion(NO);
+//                    NSLog(@"%@",error);
+//                });
+//            }
+//        }
+//        
+//    }];
+//    
+//    [postDataTask resume];
+//}
 @end

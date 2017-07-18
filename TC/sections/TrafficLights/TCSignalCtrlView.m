@@ -22,8 +22,8 @@
 @interface TCSignalCtrlView() <UITableViewDataSource, UITableViewDelegate, TCSignalCtrlHeadViewDelegate, TCSignalCtrllerUpdaterDelegate, TCSignalCtrlTableViewCellDelegate>
 
 @property(nonatomic, strong) UILabel *titleLabel;
-@property(nonatomic, strong) UIButton *requestBtn;
-@property(nonatomic, strong) UIButton *backtoMapBtn;
+
+
 
 
 @property(nonatomic, copy) NSString *selectedCtrllerId;
@@ -38,7 +38,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        [self commonInit];
+        //[self commonInit];
+        [self awakeFromNib];
     }
     return self;
 }
@@ -117,6 +118,7 @@
         [self.mutableScInfoArray addObject:scInfo];
         [self.tableView insertSections:[NSIndexSet indexSetWithIndex:self.mutableScInfoArray.count - 1] withRowAnimation:UITableViewRowAnimationAutomatic];
 //        [self.tableView reloadData];
+        
     }
 }
 
@@ -159,6 +161,7 @@
 }
 
 - (UIButton *)requestBtn {
+    
     if (_requestBtn == nil) {
         _requestBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         [_requestBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -166,10 +169,14 @@
         _requestBtn.clipsToBounds = YES;
         [_requestBtn setTitle:@"申请控制" forState:UIControlStateNormal];
         [_requestBtn setBackgroundImage:[UIImage imageNamed:@"sc_blue_btn_bg"] forState:UIControlStateNormal];
+        
         [_requestBtn setBackgroundImage:[UIImage imageNamed:@"sc_gray_btn_bg"] forState:UIControlStateDisabled];
+        
         [_requestBtn addTarget:self action:@selector(requestBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+      
         [self addSubview:_requestBtn];
     }
+    
     return _requestBtn;
 }
 
@@ -197,10 +204,15 @@
         _tableView.backgroundColor = [UIColor colorWithHex:@"#343f51"];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        [_tableView registerClass:[TCSignalCtrlTableViewCell class] forCellReuseIdentifier:@"TCSignalCtrlTableViewCell"];
+        [_tableView registerClass:[TCSignalCtrlTableViewCell class]
+        forCellReuseIdentifier:@"TCSignalCtrlTableViewCell"];
+         
         _tableView.estimatedRowHeight = 200.0;
         _tableView.rowHeight = UITableViewAutomaticDimension;
         [self addSubview:_tableView];
+        
+        
+        _tableView.hidden=YES;
     }
     return _tableView;
 }
@@ -223,13 +235,17 @@
 #pragma mark - action
 - (void)requestBtnTapped:(UIButton *)btn {
     if ([self.delegate respondsToSelector:@selector(signalCtrlView:requestBtnTapped:)]) {
+        
+        // _tableView.hidden=NO;
+        NSLog(@"mmmm");
         [self.delegate signalCtrlView:self requestBtnTapped:self.requestBtn];
     }
 }
-
-- (void)backToMapBtnTapped:(UIButton *)btn {
+-(void)backToMapBtnTapped:(UIButton*)btn{
+   // _requestBtn.enabled=YES;
+    _tableView.hidden=YES;
     if ([self.delegate respondsToSelector:@selector(signalCtrlViewBackToMapBtnPressed:)]) {
-        [self.delegate signalCtrlViewBackToMapBtnPressed:self];
+[self.delegate signalCtrlViewBackToMapBtnPressed:self];
     }
 }
 
@@ -244,7 +260,9 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
     return self.mutableScInfoArray.count;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -263,6 +281,7 @@
     headerVw.selected = [info.ctrlerId isEqualToString:self.selectedCtrllerId];
     headerVw.tag = section;
     headerVw.delegate = self;
+    
     return headerVw;
 }
 
@@ -349,7 +368,19 @@
             } else {
                 NSString *totalSec = [cs getSecondsByIntSn:sn];
                 NSString *name = [TLCrossScheme getSnNameBySn:sn];
-                cell.stageLabel.text = [NSString stringWithFormat:@"状态: %@[%ld/%@]", name, (long) runTimeInfo.duration, totalSec];
+//                NSUserDefaults *userdefault=[NSUserDefaults standardUserDefaults];
+//                NSArray *strNames=[userdefault objectForKey:@"dict.stageRule"];
+//                for (int i = 0; i<strNames.count; i++) {
+//                    
+//                    NSDictionary *dictm=[strNames objectAtIndex:i];
+//                    if (runTimeInfo.stageId==dictm[@"stageCode"]) {
+//                        NSString *sName=dictm[@"stageName"];
+//                        cell.stageLabel.text = [NSString stringWithFormat:@"状态: %@[%ld/%@]", sName , (long) runTimeInfo.duration, totalSec];
+//                    }
+//                    
+//                }
+                
+                cell.stageLabel.text = [NSString stringWithFormat:@"状态: %@[%ld/%@]", name , (long) runTimeInfo.duration, totalSec];
             }
             cell.preSn = [NSString stringWithFormat:@"%ld", (long)sn];
             [cell.stageLabel sizeToFit];
@@ -414,6 +445,7 @@
         if (finished) {
             NSLog(@"停止成功！");
             cell.controlling = NO;
+            NSLog(@"%@",[NSDate date]);
         } else {
             NSLog(@"停止失败!");
         }
@@ -429,6 +461,8 @@
         btn.enabled = YES;
         if (finished) {
             NSLog(@"步进成功！");
+            NSLog(@"%@",[NSDate date]);
+            
         } else {
             NSLog(@"步进失败");
         }
@@ -440,7 +474,9 @@
     TLSignalCtrlerInfo *scInfo = [self.mutableScInfoArray objectAtIndex:cell.tag];
     [self.scOperator removeSignalCtrllerWithCtrllerId:scInfo.ctrlerId completion:^(BOOL finished) {
         if (finished) {
+            
             NSLog(@"停止成功！");
+            self.requestBtn.enabled=YES;
             cell.controlling = NO;
         } else {
             NSLog(@"停止失败!");

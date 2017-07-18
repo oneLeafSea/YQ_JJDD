@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <SRWebSocket.h>
 #import "RTWSMsg.h"
-
+#import <CommonCrypto/CommonDigest.h>
+#import <CommonCrypto/CommonCryptor.h>
 @protocol RTWSMgrDelegate;
 
 @interface RTWSMgr : NSObject
+
 
 - (instancetype)initWithAddr:(NSString *)addr;
 

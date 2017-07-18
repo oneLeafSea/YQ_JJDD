@@ -28,9 +28,12 @@
  */
 
 + (void)getArcgisTokenWithUsrName:(NSString *)usrName
-                              pwd:(NSString *)pwd
+pwd:(NSString *)pwd
                        completion:(void(^)(NSString *token, BOOL finished))completion;
-
+//+ (void)getArcgisToken:
+          //  (void(^)(NSString *string, BOOL finished))completion;
+//+ (void)getArcgisTokenWithToken:(NSString *)token
+//                     Completion:(void(^)(NSString *jsonResult, BOOL finished))completion;
 
 /*
  * 获取所有信号机信息，以及地图上的坐标。
@@ -173,4 +176,14 @@
  *  @param completion block
  */
 + (void)getDWLastCrossSchemeWithRoadNo:(NSString *)crossId token:(NSString *)token completion:(void (^)(NSArray *array, BOOL finished))completion;
++ (void)getSingnalCtrlwithTOKEN:(NSString *)token
+                       crossIds:(NSString*)crossIds
+                        USER_ID:(NSString*)userId REQ_ID:(NSString*)Id RESULT_PUSH_URL:(NSString*)result_push_url
+                    
+                     Completion:(void(^)(BOOL finished))completion;
++(void)getUrlfromOurWebSocketWithreqid:(NSString*)reqId completion:(void(^)(NSString *jsonResult,BOOL finished))completion;
++(void)getSingalCtrlReleaseToken:(NSString *)token reqId:(NSString*)reqId userId:(NSString*)userId completion:(void(^)(BOOL finished))completion;
+//卡口订阅登录使用
++(void)loginTollegateDYWithUserName:(NSString*)username arr:(NSString*)arr loginFlag:(NSString*)loginFlag completion:(void(^)(BOOL finished))completion;
++(void)getDYInfomationWithUsername:(NSString *)username completion:(void(^)(BOOL finished))completion;
 @end

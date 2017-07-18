@@ -31,7 +31,8 @@ typedef NS_ENUM(NSUInteger, TCPadZoom) {
 @interface TCPadView : UIView
 
 @property(nonatomic, weak)id<TCPadViewDelegate> delegate;
-
+@property (nonatomic, strong) UIButton *zoomInBtn;
+@property (nonatomic, strong) UIButton *zoomOutBtn;
 @end
 
 @protocol TCPadViewDelegate <NSObject>

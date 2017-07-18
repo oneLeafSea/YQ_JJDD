@@ -45,9 +45,11 @@
 - (void)commonInit {
     self.backgroundColor = [UIColor colorWithHex:self.selected ? @"#343f51" : @"#2b3346"];
     
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGuesture:)];
-    [self addGestureRecognizer:tapGesture];
-    [self setupConstraints];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGuesture:)];
+        [self addGestureRecognizer:tapGesture];
+        [self setupConstraints];
+    
+    
 }
 
 - (void)setupConstraints {

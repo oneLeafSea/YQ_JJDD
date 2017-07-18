@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TC-swift.h"
+//#import "TC-swift.h"
 
 @interface LoginMgr : NSObject
 
@@ -18,7 +18,7 @@
                completion:(void(^)(BOOL finished, NSError *error))completion;
 
 
-@property(nonatomic, strong)   RTSession *session;
+//@property(nonatomic, strong)   RTSession *session;
 
 @property(nonatomic, copy) NSString *username;
 @property(nonatomic, copy) NSString *password;

@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #import "TLSignalCtrlerInfo.h"
-
+#import "TCSignalCtrlTableViewCell.h"
+#import "TCSignalCtrlView.h"
 @protocol TCSignalCtrlViewControllerDelegate;
 
 @interface TCSignalCtrlViewController : UIViewController

@@ -9,7 +9,7 @@
 #import "TCVideosViewController.h"
 
 #import <Masonry/Masonry.h>
-
+#import "TCSnapViewViewController.h"
 #import "TCVideoContainerView.h"
 #import "AppDelegate.h"
 #import "TVHighCamInfo.h"
@@ -21,7 +21,9 @@
 #import "UVPresetInfo.h"
 
 
-@interface TCVideosViewController() <TCVideoContainerViewDelegate, TCReplayViewControllerDelgate, TCPresetViewControllerDelegate>
+@interface TCVideosViewController() <TCVideoContainerViewDelegate, TCReplayViewControllerDelgate, TCPresetViewControllerDelegate,
+TCSnapViewViewControllerDelegate
+    >
 
 @property(nonatomic, strong) TCVideoContainerView *firstVideoContrainerView;
 @property(nonatomic, strong) TCVideoContainerView *secondVideoContrainerView;
@@ -49,7 +51,7 @@
     [self.idleContainerViews addObject:self.secondVideoContrainerView];
     [self.idleContainerViews addObject:self.thirdVideoContrainerView];
     [self.idleContainerViews addObject:self.forthVideoContrainerView];
-    
+    self.arr=[[NSMutableArray alloc]initWithCapacity:32];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -313,6 +315,7 @@
 }
 
 - (void)TCVideoContainerViewDidTapped:(TCVideoContainerView *)containerView {
+    
     if ([containerView isEqual:self.firstVideoContrainerView]) {
         if (self.firstVideoContrainerView.playing || self.firstVideoContrainerView.isFullScreen) {
             if (self.firstVideoContrainerView.isFullScreen == NO) {
@@ -323,6 +326,8 @@
                         make.height.equalTo(self.view.mas_height);
                         make.top.equalTo(self.view);
                     }];
+                    TCVideoContainerView *tcv=[[TCVideoContainerView alloc]init];
+                    
                     self.secondVideoContrainerView.hidden = YES;
                     self.thirdVideoContrainerView.hidden = YES;
                     self.forthVideoContrainerView.hidden = YES;
@@ -496,6 +501,7 @@
     replayVC.resInfo = containerView.resource;
     [self.view.window.rootViewController presentViewController:replayVC animated:YES completion:^{
         [self pauseAll];
+        
     }];
 }
 
@@ -514,6 +520,10 @@
     TCPresetViewController *pvc = [[TCPresetViewController alloc] init];
     pvc.delegate = self;
     pvc.resInfo = containerView.resource;
+   // pvc.presetList=self.arr;
+    
+   
+    NSLog(@">>>>%@",pvc.presetList);
     if([self respondsToSelector:@selector(popoverPresentationController)] && [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         pvc.modalPresentationStyle = UIModalPresentationPopover;
         pvc.popoverPresentationController.sourceView = containerView;
@@ -521,7 +531,10 @@
         pvc.popoverPresentationController.sourceRect = button.frame;
     }
     pvc.preferredContentSize = CGSizeMake(300, 300);
-    [self presentViewController:pvc animated:YES completion:nil];
+    //[self presentViewController:pvc animated:YES completion:nil];
+    [self.view.window.rootViewController presentViewController:pvc animated:YES completion:^{
+        
+    }];
 }
 
 - (void)addPreset:(NSString *)desc
@@ -531,16 +544,32 @@
     [APP_DELEGATE.tvMgr.request execRequest:^{
         UVPresetInfo *info = [[UVPresetInfo alloc] init];
         [info setPresetValue:[value intValue]];
+        
         [info setPresetDesc:desc];
+       
         [APP_DELEGATE.tvMgr.service cameraSetPreset:resCode presetInfo:info];
+//        NSUserDefaults *userD=[NSUserDefaults standardUserDefaults];
+//        [userD setObject:info forKey:@"key"];
+//        NSArray *arr=[userD objectForKey:@"key"];
+//        NSLog(@"%@",arr);
+        
+        [self.arr addObject:info];
+       
     }finish:^(UVError *error) {
         if (error) {
             [containerView makeToast:[NSString stringWithFormat:@"创建失败：%@", error.message]];
         }
         else {
+            
+//            NSUserDefaults *userdefaults=[NSUserDefaults standardUserDefaults];
+//            [userdefaults setValue:desc forKey:@"desc"];
+//            [userdefaults setValue:value forKey:@"value"];
+//            
             [containerView makeToast:@"创建预置位成功。"];
+           
         }
     }];
+    
 }
 
 - (void)TCVideoContainerView:(TCVideoContainerView *)containerView addPresetDidTapped:(UIButton *)presetBtn {
@@ -555,7 +584,13 @@
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSString *value = [ac.textFields objectAtIndex:0].text;
         NSString *desc = [ac.textFields objectAtIndex:1].text;
+        self.value=value;
+        
+        self.desc=desc;
         [self addPreset:desc value:value resCode:containerView.resource.resCode containerView:containerView];
+      
+        
+        
     }];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -575,6 +610,7 @@
 
 - (void)TCPresetViewController:(TCPresetViewController *)presetViewController SetPresetResult:(BOOL)sucess error:(UVError *)error {
     UVResourceInfo *resInfo = presetViewController.resInfo;
+    NSLog(@"resInfo%@",resInfo);
     TCVideoContainerView *containerView = nil;
     
     do {
@@ -605,6 +641,35 @@
         [containerView makeToast:[NSString stringWithFormat:@"设置预置位失败:%@", error.message]];
     }
     
+    
 }
 
+-(void)TCVideoContainerView:(TCVideoContainerView *)containerView snapViewDidTaped:(UIButton *)button{
+    TCSnapViewViewController *snapView=[[TCSnapViewViewController alloc]init];
+    snapView.delegate=self;
+   
+    [self.view.window.rootViewController presentViewController:snapView animated:YES completion:^{
+        [self pauseAll];
+    }];
+}
+
+-(void)clickBtn:(TCSnapViewViewController *)ctrl{
+    
+    [self resumeAll];
+}
+//-(void)TCVideoContainerView:(TCVideoContainerView *)containnerView closeRecordBtnDidTaped:(UIButton *)button{
+//    UIAlertController *alConrtrol=[UIAlertController alertControllerWithTitle:@"提示" message:@"是否打开本地视频" preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+//    UIAlertAction *okAction=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        UIImagePickerController *imagePicker=[[UIImagePickerController alloc]init];
+//        imagePicker.delegate=self;
+//        imagePicker.allowsEditing=YES;
+//        imagePicker.sourceType=UIImagePickerControllerSourceTypeCamera;
+//        [self presentViewController:imagePicker animated:YES completion:nil];
+//        
+//    }];
+//    [alConrtrol addAction:okAction];
+//    [alConrtrol addAction:cancelAction];
+//    [self presentViewController:alConrtrol animated:YES completion:nil];
+//}
 @end

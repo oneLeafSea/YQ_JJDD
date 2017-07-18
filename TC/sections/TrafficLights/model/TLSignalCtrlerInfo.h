@@ -32,8 +32,8 @@ extern NSString *kSignalCtrlerStatusBroken;
 @property(nonatomic, copy) NSString *installPhase;
 @property(nonatomic, copy) NSString *roadNo;
 @property(nonatomic, copy) NSString *regionId;
-
-
+@property(nonatomic,copy)NSString *videoTunnels;
+@property(nonatomic,copy)NSString *videodeviceId;
 - (NSString *)getSCImageByStatus;
 
 

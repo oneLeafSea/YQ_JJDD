@@ -10,7 +10,7 @@
 
 #import <Masonry/Masonry.h>
 #import "UIColor+Hexadecimal.h"
-
+#import "TCSignalCtrlViewController.h"
 @interface TCSignalCtrlTableViewCell()
 
 @property(nonatomic, strong) UIButton *stopBtn;
@@ -24,6 +24,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self commonInit];
+        
     }
     return self;
 }
@@ -47,7 +48,7 @@
 - (void)commonInit {
     self.contentView.backgroundColor = [UIColor colorWithHex:@"#2b3346"];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    _controlling = NO;
+    _controlling = YES;
     
     [self.stopBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(25);
@@ -131,6 +132,7 @@
         [_stopBtn setTitle:@"停止" forState:UIControlStateNormal];
         [_stopBtn setBackgroundImage:[UIImage imageNamed:@"sc_blue_btn_bg"] forState:UIControlStateNormal];
         [_stopBtn setBackgroundImage:[UIImage imageNamed:@"sc_gray_btn_bg"] forState:UIControlStateDisabled];
+        
         [_stopBtn addTarget:self action:@selector(stopBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:_stopBtn];
     }
@@ -140,6 +142,7 @@
 - (UIButton *)stepBtn {
     if (_stepBtn == nil) {
         _stepBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        
         [_stepBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _stepBtn.layer.cornerRadius = 8.0f;
         _stepBtn.clipsToBounds = YES;
@@ -161,8 +164,11 @@
         [_startBtn setTitle:@"启动" forState:UIControlStateNormal];
         [_startBtn setBackgroundImage:[UIImage imageNamed:@"sc_blue_btn_bg"] forState:UIControlStateNormal];
         [_startBtn setBackgroundImage:[UIImage imageNamed:@"sc_gray_btn_bg"] forState:UIControlStateDisabled];
-        [_startBtn addTarget:self action:@selector(startBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
-        _startBtn.enabled = NO;
+         _startBtn.enabled=NO;
+        
+            [_startBtn addTarget:self action:@selector(startBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
         [self.contentView addSubview:_startBtn];
     }
     return _startBtn;
@@ -262,10 +268,13 @@
 }
 
 - (void)startBtnTapped:(UIButton *)btn {
-//    self.controlling = YES;
-    if ([self.delegate respondsToSelector:@selector(TCSignalCtrlTableViewCellTapped:startBtn:)]) {
-        [self.delegate TCSignalCtrlTableViewCellTapped:self startBtn:self.startBtn];
-    }
+    
+        self.controlling = NO;
+        if ([self.delegate respondsToSelector:@selector(TCSignalCtrlTableViewCellTapped:startBtn:)]) {
+            [self.delegate TCSignalCtrlTableViewCellTapped:self startBtn:self.startBtn];
+        
+        }
+   
 }
 
 - (void)stepBtnTapped:(UIButton *)btn {

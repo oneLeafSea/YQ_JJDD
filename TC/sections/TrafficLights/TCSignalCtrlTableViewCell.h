@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TCSignalCtrlView.h"
 @protocol TCSignalCtrlTableViewCellDelegate;
 
 @interface TCSignalCtrlTableViewCell : UITableViewCell
@@ -30,7 +30,7 @@
 
 @property(nonatomic, strong) NSString *preSn;
 //@property(nonatomic, assign) NSInteger snTime;
-
+@property(nonatomic,strong)TCSignalCtrlView *scview;
 @property(nonatomic, weak) id<TCSignalCtrlTableViewCellDelegate> delegate;
 
 @end

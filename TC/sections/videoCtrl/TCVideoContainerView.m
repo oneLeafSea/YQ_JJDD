@@ -22,6 +22,9 @@
 #import "TCPresetView.h"
 #import "TCPresetViewController.h"
 #import "TCNotification.h"
+#import "UIView+Toast.h"
+#import "TCEPCCalloutViewController.h"
+//#import "TCSnapView.h"
 
 typedef enum tagPlayType
 {
@@ -41,7 +44,7 @@ typedef enum tagMwPtzCmdEnum
     MW_PTZ_ZOOMWIDESTOP      = 0x0303,/**< 缩小停止 */
     MW_PTZ_ZOOMWIDE          = 0x0304,/**< 缩小 */
     
-    MW_PTZ_TILTUPSTOP        = 0x0401,/**< 向上停止 */
+    MW_PTZ_TILTUPSTOP           = 0x0401,/**< 向上停止 */
     MW_PTZ_TILTUP            = 0x0402,/**< 向上 */
     MW_PTZ_TILTDOWNSTOP      = 0x0403,/**< 向下停止 */
     MW_PTZ_TILTDOWN          = 0x0404,/**< 向下 */
@@ -120,12 +123,11 @@ typedef enum tagMwPtzCmdEnum
 @property(nonatomic, strong)UIButton *replayBtn;
 @property(nonatomic, strong)UIButton *closeBtn;
 @property(nonatomic, strong)UIButton *fullScreenBtn;
-@property(nonatomic, strong)UIButton *ptzBtn;
+
 @property(nonatomic, strong)UIButton *recordBtn;
 @property(nonatomic, strong)UIButton *snapBtn;
-@property(nonatomic, strong)UIButton *presetBtn;
-@property(nonatomic, strong)UIButton *addPresetBtn;
 
+@property(nonatomic,strong)TCEPCCalloutViewController*tce;
 @property(nonatomic, assign)BOOL   hideIconBtn;
 
 @property(nonatomic, strong)UITapGestureRecognizer *doubleTapGesture;
@@ -134,7 +136,7 @@ typedef enum tagMwPtzCmdEnum
 
 @property(nonatomic, strong)TCPadView   *padView;
 @property(nonatomic, assign)BOOL    error;
-
+@property(nonatomic,strong)NSMutableArray *presetList;
 @end
 
 @implementation TCVideoContainerView
@@ -143,12 +145,15 @@ typedef enum tagMwPtzCmdEnum
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor blackColor];
         [self setup];
+        
     }
+    
     return self;
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationExit object:nil];
+    
 }
 
 - (void)setup {
@@ -168,6 +173,7 @@ typedef enum tagMwPtzCmdEnum
 
 
 - (void)setupConstraints {
+   _padding=20;
     [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
@@ -192,45 +198,78 @@ typedef enum tagMwPtzCmdEnum
     }];
     
     [self.replayBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(8);
+        
         make.right.equalTo(self).offset(-8);
+        make.top.equalTo(self).offset(1.5*_padding);
+        make.width.equalTo(self.imgView.mas_width).multipliedBy(0.1);
+        make.height.equalTo(self.imgView.mas_width).multipliedBy(0.1);
+        
+        
     }];
     
     [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.top.equalTo(self.replayBtn.mas_bottom);
-        make.centerY.equalTo(self);
+        make.bottom.equalTo(self.fullScreenBtn.mas_top).offset(-_padding);
         make.right.equalTo(self).offset(-8);
+        make.width.equalTo(self.imgView.mas_width).multipliedBy(0.07);
+        make.height.equalTo(self.imgView.mas_width).multipliedBy(0.08);
+       
     }];
 
     [self.fullScreenBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self).offset(-8);
-        make.right.equalTo(self).offset(-8);
+        make.bottom.equalTo(self).offset(-_padding);
+        make.right.equalTo(self).offset(-25);
+        make.width.equalTo(self.imgView.mas_width).multipliedBy(0.08);
+        make.height.equalTo(self.imgView.mas_width).multipliedBy(0.08);
     }];
     
     [self.ptzBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self).offset(-8);
-        make.left.equalTo(self).offset(8);
+        make.top.equalTo(self.replayBtn.mas_bottom).offset(_padding);
+        make.right.equalTo(self).offset(-8);
+        make.width.equalTo(self.imgView.mas_width).multipliedBy(0.1);
+        make.height.equalTo(self.imgView.mas_width).multipliedBy(0.1);
     }];
     
-    [self.recordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self);
-        make.left.equalTo(self).offset(8);
-    }];
+//    [self.recordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.replayBtn.mas_bottom).offset(_padding);
+//        make.right.equalTo(self).offset(-8);
+//        make.width.equalTo(self.imgView.mas_width).multipliedBy(0.1);
+//        make.height.equalTo(self.imgView.mas_width).multipliedBy(0.1);
+//    }];
     
     [self.snapBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(8);
+        make.top.equalTo(self).offset(1.5*_padding);
+        //make.centerX.equalTo(self).offset(-20);
         make.left.equalTo(self).offset(8);
+        make.width.equalTo(self.imgView.mas_width).multipliedBy(0.1);
+        make.height.equalTo(self.imgView.mas_width).multipliedBy(0.1);
     }];
-    
+    [_padView.zoomOutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(8);
+        make.width.equalTo(self.imgView.mas_width).multipliedBy(0.1);
+        make.height.equalTo(self.imgView.mas_width).multipliedBy(0.1);
+        make.top.equalTo(_padView.zoomInBtn.mas_bottom).offset(_padding);
+    }];
+    [_padView.zoomInBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(8);
+        make.width.equalTo(self.imgView.mas_width).multipliedBy(0.1);
+        make.height.equalTo(self.imgView.mas_width).multipliedBy(0.1);
+        make.top.equalTo(self.addPresetBtn.mas_bottom).offset(_padding);
+    }];
     [self.presetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(8);
-        make.centerX.equalTo(self).offset(-20);
+        make.top.equalTo(self.snapBtn.mas_bottom).offset(_padding);
+        make.left.equalTo(self).offset(8);
+        make.width.equalTo(self.imgView.mas_width).multipliedBy(0.1);
+        make.height.equalTo(self.imgView.mas_width).multipliedBy(0.1);
     }];
-    
     [self.addPresetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.presetBtn);
-        make.left.equalTo(self.presetBtn.mas_right).offset(8);
+        make.top.equalTo(self.presetBtn.mas_bottom).offset(_padding);
+        //make.left.equalTo(self.presetBtn.mas_right).offset(8);
+        make.left.equalTo(self).offset(8);
+        make.width.equalTo(self.imgView.mas_width).multipliedBy(0.1);
+        make.height.equalTo(self.imgView.mas_width).multipliedBy(0.1);
     }];
+   
     
 }
 
@@ -307,7 +346,7 @@ typedef enum tagMwPtzCmdEnum
     if (_replayBtn == nil) {
         _replayBtn = [UIButton buttonWithType:UIButtonTypeSystem];
 //        [_replayBtn setTitle:@"回放" forState:UIControlStateNormal];
-        [_replayBtn setBackgroundImage:[UIImage imageNamed:@"video_replay_btn"] forState:UIControlStateNormal];
+        [_replayBtn setBackgroundImage:[UIImage imageNamed:@"huifang"] forState:UIControlStateNormal];
         [_replayBtn addTarget:self action:@selector(handleReplayBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_replayBtn];
     }
@@ -319,7 +358,7 @@ typedef enum tagMwPtzCmdEnum
         // video_close_btn
         _closeBtn = [UIButton buttonWithType:UIButtonTypeSystem];
 //        [_closeBtn setTitle:@"关闭" forState:UIControlStateNormal];
-        [_closeBtn setBackgroundImage:[UIImage imageNamed:@"video_close_btn"] forState:UIControlStateNormal];
+        [_closeBtn setBackgroundImage:[UIImage imageNamed:@"guanbi"] forState:UIControlStateNormal];
         [_closeBtn addTarget:self action:@selector(handleCloseBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_closeBtn];
     }
@@ -340,31 +379,31 @@ typedef enum tagMwPtzCmdEnum
 - (UIButton *)ptzBtn {
     if (_ptzBtn == nil) {
         _ptzBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-//        [_ptzBtn setBackgroundImage:[UIImage imageNamed:@"video_fullscreen_btn"] forState:UIControlStateNormal];
-        [_ptzBtn setTitle:@"云台控制" forState:UIControlStateNormal];
+        [_ptzBtn setBackgroundImage:[UIImage imageNamed:@"yuntaikongzhi"] forState:UIControlStateNormal];
+        
         [_ptzBtn addTarget:self action:@selector(handlePtzBtn:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:_ptzBtn];
-
-    }
+       
+          [self addSubview:_ptzBtn];
+        }
     return _ptzBtn;
 }
-
-- (UIButton *)recordBtn {
-    if (_recordBtn == nil) {
-        _recordBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-        //        [_recordBtn setBackgroundImage:[UIImage imageNamed:@"video_fullscreen_btn"] forState:UIControlStateNormal];
-        [_recordBtn setTitle:@"打开录像" forState:UIControlStateNormal];
-        [_recordBtn addTarget:self action:@selector(handleRecordBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:_recordBtn];
-    }
-    return _recordBtn;
-}
+//-(UIButton *)recordBtn {
+//if (_recordBtn == nil) {
+//        _recordBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+//                [_recordBtn setBackgroundImage:[UIImage imageNamed:@"dakaishiping"] forState:UIControlStateNormal];
+//        //[_recordBtn setTitle:@"打开录像" forState:UIControlStateNormal];
+//        [_recordBtn addTarget:self action:@selector(handleRecordBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+//        [self addSubview:_recordBtn];
+//    }
+//    return _recordBtn;
+//}
 
 - (UIButton *)snapBtn {
     if (_snapBtn == nil) {
         _snapBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         //        [_snapBtn setBackgroundImage:[UIImage imageNamed:@"video_fullscreen_btn"] forState:UIControlStateNormal];
-        [_snapBtn setTitle:@"抓拍" forState:UIControlStateNormal];
+       // [_snapBtn setTitle:@"抓拍" forState:UIControlStateNormal];
+        [_snapBtn setBackgroundImage:[UIImage imageNamed:@"zhuapai"] forState:UIControlStateNormal];
         [_snapBtn addTarget:self action:@selector(snapBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_snapBtn];
     }
@@ -374,8 +413,8 @@ typedef enum tagMwPtzCmdEnum
 - (UIButton *)presetBtn {
     if (_presetBtn == nil) {
         _presetBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-        //        [_presetBtn setBackgroundImage:[UIImage imageNamed:@"video_fullscreen_btn"] forState:UIControlStateNormal];
-        [_presetBtn setTitle:@"预置位" forState:UIControlStateNormal];
+[_presetBtn setBackgroundImage:[UIImage imageNamed:@"yuzhiwei"] forState:UIControlStateNormal];
+       //[_presetBtn setTitle:@"预置位" forState:UIControlStateNormal];
         [_presetBtn addTarget:self action:@selector(presetTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_presetBtn];
     }
@@ -385,8 +424,8 @@ typedef enum tagMwPtzCmdEnum
 - (UIButton *)addPresetBtn {
     if (_addPresetBtn == nil) {
         _addPresetBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-        //        [_presetBtn setBackgroundImage:[UIImage imageNamed:@"video_fullscreen_btn"] forState:UIControlStateNormal];
-        [_addPresetBtn setTitle:@"添加预置位" forState:UIControlStateNormal];
+               [_addPresetBtn setBackgroundImage:[UIImage imageNamed:@"addPreset"] forState:UIControlStateNormal];
+    //[_addPresetBtn setTitle:@"添加预置位" forState:UIControlStateNormal];
         [_addPresetBtn addTarget:self action:@selector(addPresetBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_addPresetBtn];
     }
@@ -396,6 +435,14 @@ typedef enum tagMwPtzCmdEnum
 - (void)showOrHideIcons {
     if (self.player.isPlaying) {
         self.hideIconBtn = !self.hideIconBtn;
+        if ([self.camInfo isKindOfClass:[TVElecPoliceInfo class]]) {
+            _ptzBtn.hidden=YES;
+           
+            _presetBtn.hidden = YES;
+            _addPresetBtn.hidden = YES;
+          
+
+        }
     } else {
         self.hideIconBtn = YES;
     }
@@ -428,23 +475,18 @@ typedef enum tagMwPtzCmdEnum
     self.snapBtn.hidden = hideIconBtn;
     self.presetBtn.hidden = hideIconBtn;
     self.addPresetBtn.hidden = hideIconBtn;
-}
+    _padView.zoomInBtn.hidden=hideIconBtn;
+    _padView.zoomOutBtn.hidden=hideIconBtn;
+    
+    }
 
 #pragma mark -public
 
 - (void)pause {
-//    if (self.player.isPlaying) {
-//        [self.player setIsPaused:YES];
-//    }
-    [self privateStop];
+     [self privateStop];
 }
 - (void)resume {
-//    if (self.error) {
-//        return;
-//    }
-//    if (self.player.isPaused) {
-//        [self.player setIsPaused:NO];
-//    }
+
     if (self.currentCameralInfo) {
         [self startPlay:self.currentCameralInfo];
     }
@@ -479,30 +521,37 @@ typedef enum tagMwPtzCmdEnum
     [param setStreamInfo:streamInfo];
     __block NSString *playSession = nil;
     [APP_DELEGATE.tvMgr.request execRequest:^{
-        playSession = [APP_DELEGATE.tvMgr.service startLive:param withTimeOut:10.0f];
+        playSession = [APP_DELEGATE.tvMgr.service startLive:param withTimeOut:15.0f];
     } finish:^(UVError *error) {
         if (error != nil) {
             NSLog(@"启动实时播放失败。");
             self.errLabel.text = error.message;
             [self showErrorInfo:YES];
             [self.waitView stopAnimating];
+            
             return;
         }
         _playType = PLAY_TYPE_LIVE;
         [self startPlayWithSession:playSession];
-    } showProgressInView:self message:@""];
+    } showProgressInView:self message:@"进入播放"];
 }
 
 - (void)startPlayWithCamInfo:(TVCamInfo *)camInfo {
+    NSLog(@"---camInfoDetail%@-%@-%@-%@--------",camInfo.deviceId,camInfo.deviceNam,camInfo.tunnel,camInfo.status);
     [self.waitView startAnimating];
     _camInfo = camInfo;
+    
+//    NSArray *sepArray = [camInfo.tunnel componentsSeparatedByString:@"_"];
+//    NSString *head = sepArray[0];
+//    NSString *foot = sepArray[1];
+//    int footnum = [foot intValue];
 #ifdef YUAN_QU_DA_DUI
     [APP_DELEGATE.tvMgr queryResourceWithKeyword:camInfo.tunnel completion:^(NSArray *resList, NSError *error) {
         if (resList.count > 0) {
-            self.resource = resList[0];
+           self.resource = resList[0];
             [self startPlay:self.resource];
         } else {
-            self.errLabel.text = @"没有查询到摄像头资源";
+            self.errLabel.text = [NSString stringWithFormat:@"%lu%@",resList.count,error.userInfo];
             [self showErrorInfo:YES];
         }
         [self.waitView stopAnimating];
@@ -609,24 +658,27 @@ typedef enum tagMwPtzCmdEnum
 }
 
 
-- (void)onRecordStatus:(UVPlayer*)sender_ status:(BOOL)status_ {
-    if(status_) {
-        DDLogInfo(@"已经打开录像");
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.recordBtn.enabled = YES;
-            [self.recordBtn setTitle:@"关闭录像" forState:UIControlStateNormal];
-            [self makeToast:@"已经打开录像"];
-        });
-    }
-    else {
-        DDLogInfo(@"已关闭录像");
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.recordBtn.enabled = YES;
-            [self.recordBtn setTitle:@"打开录像" forState:UIControlStateNormal];
-            [self makeToast:@"已经关闭录像"];
-        });
-    }
-}
+//- (void)onRecordStatus:(UVPlayer*)sender_ status:(BOOL)status_ {
+//    if(status_) {
+//        DDLogInfo(@"已经打开录像");
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            self.recordBtn.enabled = YES;
+//
+//            [self makeToast:@"已经打开录像"];
+//        });
+//    }
+//    else {
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//           self.recordBtn.enabled = YES;
+//            [self makeToast:@"已经关闭录像"];
+//            
+//            
+//            
+//            
+//        });
+//    }
+//}
 
 
 - (void)onMuteStatus:(UVPlayer*)sender_ status:(BOOL)status_ {
@@ -639,8 +691,11 @@ typedef enum tagMwPtzCmdEnum
         dispatch_async(dispatch_get_main_queue(), ^{
             self.snapBtn.enabled = YES;
             [self makeToast:@"抓拍成功"];
+            
         });
         DDLogInfo(@"抓拍成功。");
+        //TCSnapView *snapView=[[TCSnapView alloc]init];
+        
     }
     else
     {
@@ -666,12 +721,20 @@ typedef enum tagMwPtzCmdEnum
 
 
 - (void)handleReplayBtnTapped:(UIButton *)btn {
+    if (_replayBtn.selected) {
+        [_replayBtn setBackgroundImage:[UIImage imageNamed:@"huifang_un"] forState:UIControlStateNormal];
+    }
     if ([self.delegate respondsToSelector:@selector(TCVideoContainerView:replayBtnDidTapped:camInfo:)]) {
         [self.delegate TCVideoContainerView:self replayBtnDidTapped:self.replayBtn camInfo:self.camInfo];
     }
 }
 
 - (void)handleCloseBtnTapped:(UIButton *)btn {
+    if (_closeBtn.selected) {
+        
+    
+    [_closeBtn setBackgroundImage:[UIImage imageNamed:@"guanbi_un"] forState:UIControlStateNormal];
+    }
     self.hideIconBtn = YES;
     self.padView.hidden = YES;
     if ([self.delegate respondsToSelector:@selector(TCVideoContainerView:closeBtnDidTapped:camInfo:)]) {
@@ -682,16 +745,20 @@ typedef enum tagMwPtzCmdEnum
 }
 
 - (void)handleFullScreenBtnTapped:(UIButton *)btn {
+    
     if ([self.delegate respondsToSelector:@selector(TCVideoContainerView:FullScreenBtnDidTapped:)]) {
         [self.delegate TCVideoContainerView:self FullScreenBtnDidTapped:self.fullScreenBtn];
     }
 }
 
 - (void)handlePtzBtn:(UIButton *)btn {
+    if (_ptzBtn.selected) {
+        
+    
+    [_ptzBtn setBackgroundImage:[UIImage imageNamed:@"yuntaikongzhi_un"] forState:UIControlStateNormal];
+    }
     DDLogInfo(@"INFO: ptz btn tapped");
-//    if (!(self.currentCameralInfo.resSubType == 2)) {
-//        return;
-//    }
+
     
     if (!isStartPtz) {
         [APP_DELEGATE.tvMgr.request execRequest:^{
@@ -702,24 +769,29 @@ typedef enum tagMwPtzCmdEnum
                 DDLogError(@"error:%@", error.message);
             } else {
                 [self makeToast:@"启动云台控制"];
-                isStartPtz = YES;
+                    isStartPtz = YES;
+
+                
             }
-            [btn setTitle:isStartPtz ? @"释放控制" : @"云台控制" forState:UIControlStateNormal];
+//            [btn setTitle:isStartPtz ? @"释放控制" : @"云台控制" forState:UIControlStateNormal];
             self.padView.hidden = !isStartPtz;
         }];
     } else {
         [APP_DELEGATE.tvMgr.request execRequest:^{
             [APP_DELEGATE.tvMgr.service stopCameraPtz:self.currentCameralInfo.resCode];
+            //NSLog(@"%@",self.currentCameralInfo.resCode);
         }finish:^(UVError *error) {
             if (error) {
                 [self makeToast:error.message];
                 DDLogError
                 (@"error:%@", error.message);
             } else {
+                
                 [self makeToast:@"停止云台控制"];
+                
                 isStartPtz = NO;
             }
-            [btn setTitle:isStartPtz ? @"释放控制" : @"云台控制" forState:UIControlStateNormal];
+//            [btn setTitle:isStartPtz ? @"释放控制" : @"云台控制" forState:UIControlStateNormal];
             self.padView.hidden = !isStartPtz;
         }];
     }
@@ -729,15 +801,21 @@ typedef enum tagMwPtzCmdEnum
 }
 
 - (void)handleRecordBtnTapped:(UIButton *)btn {
+    if (_recordBtn.selected) {
+        
+    
+    [_recordBtn setBackgroundImage:[UIImage imageNamed:@"dakaishiping_un"] forState:UIControlStateNormal];
+    }
     if (!self.player.isPlaying) {
         return;
     }
     btn.enabled = NO;
     if (self.player.isRecording) {
         [self.player stopRecord];
-        return;
+       
+               return;
     }
-    
+   
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     NSString *tmpDir = NSTemporaryDirectory();
@@ -750,35 +828,49 @@ typedef enum tagMwPtzCmdEnum
     NSString *fileName = [NSString stringWithFormat:@"%@.mpg", dateStr];
     
     NSString *filePath = [tmpDir stringByAppendingPathComponent:fileName];
-    NSLog(@"%@", filePath);
+    
     
     if (![fileManager fileExistsAtPath:filePath]) {
         [fileManager createFileAtPath:filePath contents:nil attributes:nil];
     }
-    
     NSURL *URL = [NSURL fileURLWithPath:filePath];
-    
     [_player startRecord:URL];
+    
+    NSLog(@"%@",filePath);
+    
+   
+   // UISaveVideoAtPathToSavedPhotosAlbum([URL path],self, nil, NULL);
+    
 }
 
 - (void)snapBtnTapped:(UIButton *)btn {
+    if (_snapBtn.selected) {
+        [_snapBtn setBackgroundImage:[UIImage imageNamed:@"zhuapai_un"] forState:UIControlStateNormal];
+        
+        
+    }
+    //[_snapBtn setBackgroundImage:[UIImage imageNamed:@"zhuapai_un"] forState:UIControlStateNormal];
     if (!self.player.isPlaying) {
         return;
     }
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    NSString *tmpDir = NSTemporaryDirectory();
+   
+    NSArray *array=NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *tmpDir=[array objectAtIndex:0];
+    NSString *filePath = [tmpDir stringByAppendingPathComponent:@"fileName.jpg"];
+   //  NSString *tmpDir = NSTemporaryDirectory();
+   // NSDate *now = [NSDate date];
     
-    NSDate *now = [NSDate date];
+   // NSDateFormatter *format = [[NSDateFormatter alloc] init];
+   // [format setDateFormat:@"yyyyMMddHHmmss"];
+ //NSString *dateStr = [format stringFromDate:now];
+   // NSString *fileName = [NSString stringWithFormat:@"%@.jpg", dateStr];
+    //NSString*filePath=[tmpDir stringByAppendingString:fileName];
+   
     
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"yyyyMMddHHmmss"];
-    NSString *dateStr = [format stringFromDate:now];
-    NSString *fileName = [NSString stringWithFormat:@"%@.jpg", dateStr];
-    
-    NSString *filePath = [tmpDir stringByAppendingPathComponent:fileName];
-    NSLog(@"%@", filePath);
+   // NSLog(@"%@", filePath);
     
     if (![fileManager fileExistsAtPath:filePath]) {
         
@@ -787,6 +879,14 @@ typedef enum tagMwPtzCmdEnum
     }
     NSURL *URL = [NSURL fileURLWithPath:filePath];
     [_player snatch:URL];
+    NSLog(@"%@",URL);
+    
+    if ([self.delegate respondsToSelector:@selector(TCVideoContainerView:snapViewDidTaped:)]) {
+        [self.delegate TCVideoContainerView:self snapViewDidTaped:btn];
+    }
+    
+    
+    
 }
 
 - (void)presetTapped:(UIButton *)btn {
@@ -811,40 +911,13 @@ typedef enum tagMwPtzCmdEnum
         UVQueryPresetListParam *param = [[UVQueryPresetListParam alloc] init];
         [param setCameraCode:self.currentCameralInfo.resCode];
         [param setPageInfo:condition];
-        NSArray *presetList = [APP_DELEGATE.tvMgr.service cameraQueryPresetList:param];
-        DDLogInfo(@"%@", presetList);
+        self.presetList = [APP_DELEGATE.tvMgr.service cameraQueryPresetList:param];
+        DDLogInfo(@"%@", self.presetList);
+        
     }finish:^(UVError *error) {
     }];
 }
 
-- (void)addPreset:(NSString *)desc {
-    [APP_DELEGATE.tvMgr.request execRequest:^{
-        UVPresetInfo *info = [[UVPresetInfo alloc] init];
-        [info setPresetValue:1];
-        [info setPresetDesc:desc];
-        [APP_DELEGATE.tvMgr.service cameraSetPreset:self.currentCameralInfo.resCode presetInfo:info];
-    }finish:^(UVError *error) {
-        if (error) {
-            [self makeToast:error.message];
-        }
-        else {
-            NSLog(@"set preset success");
-            [self makeToast:@"设置预置位成功"];
-        }
-    }];
-}
-
-- (void)delPreset:(UVPresetInfo *)presetInfo {
-    UVPresetParam *param = [[UVPresetParam alloc] init];
-    param.presetValue = presetInfo.presetValue;
-    param.cameraCode = self.currentCameralInfo.resCode;
-    [APP_DELEGATE.tvMgr.request execRequest:^{
-        [APP_DELEGATE.tvMgr.service cameraDelPreset:param];
-    }finish:^(UVError *error) {
-//        [self.presetList removeObjectAtIndex:row_];
-//        [self.tableList reloadData];
-    }];
-}
 
 #pragma mark - padView delegate
 
@@ -858,19 +931,19 @@ typedef enum tagMwPtzCmdEnum
         case TCPadDirectionUpLeft:
             param.direction = MW_PTZ_LEFTUP;
             param.speed1 = 3.0f;
-            param.speed2 = 3.0f;
+            param.speed2 = 0.0f;
             str = @"左上";
             break;
         case TCPadDirectionUp:
             param.direction = MW_PTZ_TILTUP;
-            param.speed1 = 0.0f;
-            param.speed2 = 3.0f;
+            param.speed1 = 3.0f;
+            param.speed2 = 15.0f;
             str = @"上";
             break;
         case TCPadDirectionUpRight:
             param.direction = MW_PTZ_RIGHTUP;
             param.speed1 = 3.0f;
-            param.speed2 = 3.0f;
+            param.speed2 = 0.0f;
             str = @"右上";
             break;
         case TCPadDirectionRight:
@@ -882,19 +955,19 @@ typedef enum tagMwPtzCmdEnum
         case TCPadDirectionDownRight:
             param.direction = MW_PTZ_RIGHTDOWN;
             param.speed1 = 3.0f;
-            param.speed2 = 3.0f;
+            param.speed2 = 0.0f;
             str = @"右下";
             break;
         case TCPadDirectionDown:
             param.direction = MW_PTZ_TILTDOWN;
-            param.speed1 = 0.0f;
-            param.speed2 = 3.0f;
+            param.speed1 = 3.0f;
+            param.speed2 = 15.0f;
             str = @"下";
             break;
         case TCPadDirectionDownLeft:
             param.direction = MW_PTZ_LEFTDOWN;
             param.speed1 = 3.0f;
-            param.speed2 = 3.0f;
+            param.speed2 = 0.0f;
             str = @"左下";
             break;
         case TCPadDirectionLeft:
@@ -915,6 +988,12 @@ typedef enum tagMwPtzCmdEnum
     
     [APP_DELEGATE.tvMgr.request execRequest:^{
         [APP_DELEGATE.tvMgr.service cameraPtzCommand:param];
+        NSDate *now = [NSDate date];
+        
+         NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"yyyyMMddHHmmss"];
+        NSString *dateStr = [format stringFromDate:now];
+        NSLog(@"%@",dateStr);
     }finish:^(UVError *error) {
         if (error) {
             [self makeToast:error.message];
@@ -922,7 +1001,9 @@ typedef enum tagMwPtzCmdEnum
             return;
         }
 //        [self makeToast:str];
+        
         DDLogInfo(@"%@", str);
+        
     }];
 }
 
@@ -933,16 +1014,23 @@ typedef enum tagMwPtzCmdEnum
     param.direction = MW_PTZ_ALLSTOP;
     param.speed1 = 0.0f;
     param.speed2 = 0.0f;
+    
     [APP_DELEGATE.tvMgr.request execRequest:^{
         [APP_DELEGATE.tvMgr.service cameraPtzCommand:param];
+        NSDate *now = [NSDate date];
+        
+         NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"yyyyMMddHHmmss"];
+        NSString *dateStr = [format stringFromDate:now];
+        NSLog(@"%@",dateStr);
     }finish:^(UVError *error) {
         if (error) {
             [self makeToast:error.message];
             DDLogError(@"error:%@", error.message);
             return;
         }
-//        [self makeToast:@"停止成功"];
-    }];
+
+            }];
 }
 
 - (void)TCPad:(TCPadView *)pad didZoom:(TCPadZoom)zoom {
@@ -961,7 +1049,7 @@ typedef enum tagMwPtzCmdEnum
                 DDLogError(@"error:%@", error.message);
                 return;
             }
-//            [self makeToast:@"放大"];
+            //[self makeToast:@"放大"];
         }];
     } else if (zoom == TCPadZoomOut) {
         UVPtzCommandParam *param = [[UVPtzCommandParam alloc] init];
@@ -978,7 +1066,7 @@ typedef enum tagMwPtzCmdEnum
                 DDLogError(@"error:%@", error.message);
                 return;
             }
-//            [self makeToast:@"缩小"];
+            //[self makeToast:@"缩小"];
         }];
     }
 }
@@ -997,7 +1085,7 @@ typedef enum tagMwPtzCmdEnum
             DDLogError(@"error:%@", error.message);
             return;
         }
-//        [self makeToast:@"停止成功"];
+        //[self makeToast:@"停止成功"];
     }];
 }
 

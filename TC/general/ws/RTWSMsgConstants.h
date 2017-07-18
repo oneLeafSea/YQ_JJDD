@@ -51,7 +51,7 @@ extern NSString *const kTopicKick;
 extern NSString *const kTopicTollgateSelSvc;
 
 extern NSString *const kTopicTollgatePush;
-
+extern NSString *const kTopicTollgateBKPush;
 
 // ----------------status--------------------------
 
@@ -69,3 +69,17 @@ extern NSString *const kDeviceIPad;
  *  卡口推送通知消息
  */
 extern NSString *const kNotificationTollgatePush;
+
+//
+/*
+
+卡口布控的推送
+*/
+extern NSString *const KNotificationTOllCtrollerPush;
+//
+/*
+卡口订阅消息推送
+
+
+*/
+extern NSString *const KNotificationDYTollegatePush;

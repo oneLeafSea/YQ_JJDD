@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "AirIMOSIphoneSDK.h"
-
+#import "TCVideosViewController.h"
 @protocol TCPresetViewControllerDelegate;
 
 @interface TCPresetViewController : UIViewController
 
 @property(nonatomic, strong)UVResourceInfo *resInfo;
+@property(nonatomic, strong)UITableView *tableView;
 @property(nonatomic, weak)id<TCPresetViewControllerDelegate> delegate;
-
+@property(nonatomic, strong)NSMutableArray  *presetList;
 @end
 
 

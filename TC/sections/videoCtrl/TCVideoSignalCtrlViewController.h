@@ -22,7 +22,7 @@
 - (void)resumeAll;
 
 @property(nonatomic, strong)NSArray *selectedCamArray;
-
+@property(nonatomic,strong)NSArray *selectedScArray;
 @end
 
 @protocol TCVideoSignalCtrlViewControllerDelegate <NSObject>

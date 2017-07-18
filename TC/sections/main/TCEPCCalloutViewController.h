@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <ArcGIS/ArcGIS.h>
-
+#import "TCEPCTollegateViewController.h"
 extern NSString *kCam;
 
 @protocol TCEPCCalloutViewControllerDelegate;

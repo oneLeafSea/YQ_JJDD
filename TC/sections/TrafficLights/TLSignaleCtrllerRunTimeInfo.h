@@ -30,5 +30,6 @@
 @property(nonatomic, readonly) NSInteger sn;
 @property(nonatomic, readonly) NSInteger duration;
 @property(nonatomic, readonly) NSString *stageName;
+@property(nonatomic,copy)NSString*stageId;
 
 @end

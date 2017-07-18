@@ -36,6 +36,7 @@ NSString *kSignalCtrlerStatusBroken = @"3";
     self.installPhase = [dict objectForKey:@"installPhase"];
     self.roadNo = [dict objectForKey:@"roadNo"];
     self.regionId = [dict objectForKey:@"regionNo"];
+    self.videoTunnels=[dict objectForKey:@"videoTunnels"];
 }
 
 - (TLPoint)tlPoint {
@@ -71,6 +72,8 @@ NSString *kSignalCtrlerStatusBroken = @"3";
         copy.status = [self.status copy];
         copy.uid = [self.uid copy];
         copy.wkt = [self.wkt copy];
+        copy.videoTunnels=[self.videoTunnels copy];
+        copy.videodeviceId=[self.videodeviceId copy];
     }
     return copy;
 }

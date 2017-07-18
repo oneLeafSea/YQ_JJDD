@@ -83,6 +83,7 @@
                             self.mapVC.view.hidden = YES;
                             [self.view bringSubviewToFront:self.vscVC.view];
                             self.vscVC.selectedCamArray = self.mapVC.selectedCamArray;
+                           
                             [self.vscVC resumeAll];
                         }];
         
@@ -93,6 +94,8 @@
 - (void)mapViewController:(TCMapViewController *)mapViewController SignalCtrlerDidSelected:(BOOL)selected SignalCtrlerInfo:(TLSignalCtrlerInfo *)scInfo {
     if (selected) {
         [self.vscVC addSignalContrller:scInfo];
+        
+        
     } else {
         [self.vscVC removeSignalController:scInfo];
     }
